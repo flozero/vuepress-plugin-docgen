@@ -2,7 +2,7 @@ import { NAME } from './constants'
 import { IDocgenOptions, IVuePressOpenContext } from './types'
 import { setDefaultOptions } from './utils/environment'
 import logger from './utils/logger'
-import { buildDirContext } from './build/context'
+import { buildDirContext, buildComponentContext } from './build/context'
 
 module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
   setDefaultOptions(options)
@@ -23,7 +23,13 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     ctx,
   })
 
-  console.log({ dirContext })
+  const componentContextMap = buildComponentContext({
+    dirContext,
+  })
+
+  for (const x of componentContextMap) {
+    console.log(x)
+  }
 
   return {
     name: NAME,

@@ -1,5 +1,5 @@
 export const NAME = 'vuepress-plugin-component-docgen'
-export const DEFAULT_PREFIX = '/components'
+export const DEFAULT_PREFIX = 'components'
 
 export const EXCLUDE = [
   '**/node_modules/**',

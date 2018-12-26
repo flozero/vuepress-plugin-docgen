@@ -19,6 +19,8 @@
   "license": "MIT",
   "devDependencies": {
     "@types/consola": "^1.0.0",
+    "@types/fs-extra": "^5.0.4",
+    "@types/minimatch": "^3.0.3",
     "@types/node": "^10.12.18",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-rem": "^4.0.0",
@@ -73,6 +75,8 @@
     }
   },
   "dependencies": {
-    "consola": "^2.3.0"
+    "consola": "^2.3.0",
+    "fs-extra": "^7.0.1",
+    "minimatch": "^3.0.4"
   }
 }

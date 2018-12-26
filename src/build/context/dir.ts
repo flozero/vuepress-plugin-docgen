@@ -1,5 +1,5 @@
 import * as path from 'path'
-import { IVuePressOpenContext } from '../../types'
+import { IVuePressOpenContext, IDirContext } from '../../types'
 import { DEFAULT_PREFIX, EXCLUDE } from '../../constants'
 
 export default ({
@@ -14,7 +14,7 @@ export default ({
   exclude?: string | string[]
   prefix?: string
   ctx: IVuePressOpenContext
-}) => {
+}): IDirContext => {
   const { sourceDir } = ctx
   const configDir = path.join(sourceDir, '.vuepress')
   const docgenDir = path.join(configDir, '.docgen')
