@@ -1,0 +1,78 @@
+{
+  "name": "vuepress-plugin-component-docgen",
+  "version": "0.0.0",
+  "description": "Vuepress plugin for document your component",
+  "scripts": {
+    "lint": "xo",
+    "dev": "nodemon --exec ts-node src/index.ts"
+  },
+  "file": [
+    "dist",
+    "README.md"
+  ],
+  "main": "dist/index.js",
+  "repository": {
+    "url": "dacsang97/vuepress-plugin-component-docgen",
+    "type": "git"
+  },
+  "author": "dacsang97<dacsang97@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/consola": "^1.0.0",
+    "@types/node": "^10.12.18",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-rem": "^4.0.0",
+    "eslint-config-xo-typescript": "^0.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "nodemon": "^1.18.7",
+    "prettier": "^1.15.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.4",
+    "typescript-eslint-parser": "^21.0.2",
+    "xo": "^0.23.0"
+  },
+  "xo": {
+    "extends": [
+      "rem",
+      "plugin:prettier/recommended",
+      "xo-typescript"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "rules": {
+      "unicorn/filename-case": "off",
+      "new-cap": "off",
+      "typescript/no-inferrable-types": "off",
+      "import/no-unassigned-import": "off",
+      "typescript/explicit-function-return-type": "off",
+      "no-throw-literal": "off",
+      "typescript/member-delimiter-style": "off",
+      "no-useless-return": "off",
+      "unicorn/no-process-exit": "off"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{ts,js}": [
+        "xo --fix",
+        "git add"
+      ],
+      "*.{json,md}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
+  },
+  "dependencies": {
+    "consola": "^2.3.0"
+  }
+}
