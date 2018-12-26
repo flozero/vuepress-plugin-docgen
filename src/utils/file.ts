@@ -1,6 +1,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import * as minimatch from 'minimatch'
+import * as rimraf from 'rimraf'
 
 export const isMatchPathname = (pathname: string, globs: string[]): boolean => {
   if (globs.length === 0) {
@@ -55,4 +56,8 @@ export const getFilePathnamesWithFilter = (
     .filter(
       pathname => include.length === 0 || isMatchPathname(pathname, include),
     )
+}
+
+export const removeDir = (dirPathname: string) => {
+  rimraf.sync(dirPathname)
 }

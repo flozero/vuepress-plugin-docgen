@@ -3,6 +3,7 @@ import { IDocgenOptions, IVuePressOpenContext } from './types'
 import { setDefaultOptions } from './utils/environment'
 import logger from './utils/logger'
 import { buildDirContext, buildComponentContext } from './build/context'
+import { removeDir } from './utils/file'
 
 module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
   setDefaultOptions(options)
@@ -27,9 +28,9 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     dirContext,
   })
 
-  for (const x of componentContextMap) {
-    console.log(x)
-  }
+  console.log(componentContextMap)
+
+  removeDir(dirContext.docgenDir)
 
   return {
     name: NAME,
