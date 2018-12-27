@@ -3,11 +3,7 @@ import { readFile } from '../../utils/file'
 import { IComponentContext, IVuePressPage } from '../../types'
 import { DocsParser, VueParser } from '../../parse'
 
-export default async ({
-  context,
-}: {
-  context: IComponentContext
-}): Promise<IVuePressPage> => {
+export default ({ context }: { context: IComponentContext }): IVuePressPage => {
   const componentInfo = parse(context.absolutePathname)
   let docs = DocsParser(componentInfo)
 

@@ -10,7 +10,6 @@ export default componentInfo => {
         /(\r\n|\n|\r)/gm,
         '<br />',
       )
-      console.log({ des: data.props[key].description })
     }
   })
 

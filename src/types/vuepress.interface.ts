@@ -12,6 +12,7 @@ export interface IVuePressPage {
   path: string
   filePath?: string
   content?: string
+  frontmatter?: any
 }
 
 export interface IVuePressComponent {

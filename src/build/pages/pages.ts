@@ -18,31 +18,30 @@ export const buildIndexPage = ({
   }
 }
 
-const buildComponentPages = async ({
+const buildComponentPages = ({
   componentContextMap,
 }: {
   componentContextMap: Map<string, IComponentContext[]>
 }) => {
-  let pagesPromise: Promise<IVuePressPage>[] = []
+  let pages: IVuePressPage[] = []
   for (const componentContexts of componentContextMap.values()) {
     const componentPages = componentContexts.map(context => {
       return buildDocsPage({ context })
     })
-
-    pagesPromise = pagesPromise.concat(componentPages)
+    pages = pages.concat(componentPages)
   }
-  const pages = await Promise.all(pagesPromise)
   return pages
 }
 
-export default async ({
+export default ({
   dirContext,
   componentContextMap,
 }: {
   dirContext: IDirContext
   componentContextMap: Map<string, IComponentContext[]>
-}): Promise<IVuePressPage[]> => {
-  const indexPage = buildIndexPage({ dirContext, componentContextMap })
-  const componentPages = await buildComponentPages({ componentContextMap })
-  return [indexPage, ...componentPages]
+}): IVuePressPage[] => {
+  return [
+    buildIndexPage({ dirContext, componentContextMap }),
+    ...buildComponentPages({ componentContextMap }),
+  ]
 }

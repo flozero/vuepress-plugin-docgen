@@ -34,8 +34,6 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     dirContext,
   })
 
-  console.log(componentContextMap)
-
   removeDir(dirContext.docgenDir)
 
   // TODO: Watch & update
@@ -46,9 +44,6 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     chainWebpack: config => {
       buildWebpackConfig({ config })
     },
-    async additionalPages() {
-      const pages = await buildPages({ dirContext, componentContextMap })
-      return pages
-    },
+    additionalPages: buildPages({ dirContext, componentContextMap }),
   }
 }
