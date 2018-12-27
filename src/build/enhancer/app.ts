@@ -19,15 +19,14 @@ export default ({
 }: {
   componentContextMap: Map<string, IComponentContext[]>
 }) => {
-  const sidebar = buildSidebar({ componentContextMap }).map(item => `'${item}'`)
+  const sidebar = buildSidebar({ componentContextMap })
 
   return {
     name: 'docgen-enhancer',
     content: `
       export default ({ siteData }) => {
-        const x = [${sidebar}]
-        siteData.themeConfig.sidebar = x
-        console.log(x)
+        const sidebar = ${JSON.stringify(sidebar)}
+        siteData.themeConfig.sidebar = sidebar
       }
     `,
   }

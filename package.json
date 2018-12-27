@@ -4,7 +4,8 @@
   "description": "Vuepress plugin for document your component",
   "scripts": {
     "lint": "xo",
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "build": "tsc"
   },
   "file": [
     "dist",
