@@ -1,5 +1,8 @@
 export default `
 # {{displayName}}
+{{#if description}}
+> {{description}}
+{{/if}}
 
 ## Props & methods
 | Prop name     | Type        | Default  | Description  |

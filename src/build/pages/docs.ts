@@ -1,6 +1,7 @@
 import { parse } from 'vue-docgen-api'
+import { readFile } from '../../utils/file'
 import { IComponentContext, IVuePressPage } from '../../types'
-import parseDoc from '../../parse/docs'
+import { DocsParser, VueParser } from '../../parse'
 
 export default async ({
   context,
@@ -8,8 +9,15 @@ export default async ({
   context: IComponentContext
 }): Promise<IVuePressPage> => {
   const componentInfo = parse(context.absolutePathname)
-  const content = parseDoc(componentInfo)
-  console.log({ content })
+  let content = DocsParser(componentInfo)
+
+  const source = readFile(context.absolutePathname)
+  const vueParser = new VueParser({ source, fileName: context.fileName })
+
+  const docsBlock = vueParser.getCustomBlock('docs')
+  context.existDocs = docsBlock !== null
+  content += docsBlock === null ? '' : docsBlock.content
+
   return {
     path: context.link,
     content,
