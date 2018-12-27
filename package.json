@@ -7,7 +7,7 @@
     "dev": "tsc -w",
     "build": "tsc"
   },
-  "file": [
+  "files": [
     "dist",
     "README.md"
   ],
