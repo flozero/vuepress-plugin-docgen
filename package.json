@@ -18,6 +18,7 @@
   "author": "dacsang97<dacsang97@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/chokidar": "^1.7.5",
     "@types/consola": "^1.0.0",
     "@types/fs-extra": "^5.0.4",
     "@types/minimatch": "^3.0.3",
@@ -76,6 +77,7 @@
     }
   },
   "dependencies": {
+    "chokidar": "^2.0.4",
     "consola": "^2.3.0",
     "fs-extra": "^7.0.1",
     "minimatch": "^3.0.4",

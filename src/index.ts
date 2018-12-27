@@ -4,6 +4,7 @@ import { setDefaultOptions } from './utils/environment'
 import logger from './utils/logger'
 import { buildDirContext, buildComponentContext } from './build/context'
 import { removeDir } from './utils/file'
+import { buildPages } from './build/pages'
 
 module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
   setDefaultOptions(options)
@@ -32,7 +33,10 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
 
   removeDir(dirContext.docgenDir)
 
+  // TODO: Watch & update
+
   return {
     name: NAME,
+    additionalPages: buildPages({ dirContext, componentContextMap }),
   }
 }

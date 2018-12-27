@@ -47,7 +47,6 @@ export const buildComponentContext = ({
   dirContext: IDirContext
   componentFileContext: IComponentFileContext
 }): IComponentContext => {
-  console.log({ componentFileContext })
   const link = buildLink({
     ...componentFileContext,
     distDirPrefix: dirContext.prefix,
@@ -118,7 +117,7 @@ export default ({ dirContext }: { dirContext: IDirContext }) => {
   })
 
   const componentContextMap = new Map()
-  for (const [dirName, fileContexts] of fileContextMap) {
+  for (const [dirName, fileContexts] of fileContextMap.entries()) {
     const componentContexts = fileContexts.map(
       (componentFileContext: IComponentFileContext) => {
         return buildComponentContext({ dirContext, componentFileContext })

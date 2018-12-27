@@ -52,6 +52,14 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@types/chokidar@^1.7.5":
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/@types/chokidar/-/chokidar-1.7.5.tgz#1fa78c8803e035bed6d98e6949e514b133b0c9b6"
+  integrity sha512-PDkSRY7KltW3M60hSBlerxI8SFPXsO3AL/aRVsO4Kh9IHRW74Ih75gUuTd/aE4LSSFqypb10UIX3QzOJwBQMGQ==
+  dependencies:
+    "@types/events" "*"
+    "@types/node" "*"
+
 "@types/consola@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/consola/-/consola-1.0.0.tgz#da6c2d81150a8ed67ee043eb97a65ff4befdad66"
