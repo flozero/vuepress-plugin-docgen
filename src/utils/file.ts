@@ -36,6 +36,41 @@ export const extractFileExtension = (pathname: string): string | null => {
   return pathname.split('.').pop() || null
 }
 
+export const getDirPathnames = (
+  dirPathname: string,
+  option: { deep?: boolean } = {},
+): string[] => {
+  const { deep = true } = option
+  return fs.readdirSync(dirPathname).reduce(
+    (newPathnames, pathname) => {
+      const absoluteFilePath = path.join(dirPathname, pathname)
+      if (fs.statSync(absoluteFilePath).isDirectory()) {
+        newPathnames.push(absoluteFilePath)
+        if (deep) {
+          return newPathnames.concat(getDirPathnames(absoluteFilePath, option))
+        }
+        return newPathnames
+      }
+      return newPathnames
+    },
+    [] as string[],
+  )
+}
+
+export const getDirPathnamesWithFilter = (
+  dirPathname: string,
+  option: { deep?: boolean; include?: string[]; exclude?: string[] } = {},
+): string[] => {
+  const { include = [], exclude = [] } = option
+  return getDirPathnames(dirPathname, option)
+    .filter(
+      pathname => exclude.length === 0 || !isMatchPathname(pathname, exclude),
+    )
+    .filter(
+      pathname => include.length === 0 || isMatchPathname(pathname, include),
+    )
+}
+
 export const getFilePathnames = (
   dirPathname: string,
   option: { deep?: boolean } = {},

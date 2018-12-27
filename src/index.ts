@@ -2,9 +2,14 @@ import { NAME } from './constants'
 import { IDocgenOptions, IVuePressOpenContext } from './types'
 import { setDefaultOptions } from './utils/environment'
 import logger from './utils/logger'
-import { buildDirContext, buildComponentContext } from './build/context'
+import {
+  buildDirContext,
+  buildComponentContext,
+  buildPages,
+  buildPlugins,
+  buildWebpackConfig,
+} from './build'
 import { removeDir } from './utils/file'
-import { buildPages } from './build/pages'
 
 module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
   setDefaultOptions(options)
@@ -37,6 +42,10 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
 
   return {
     name: NAME,
+    plugins: buildPlugins({ dirContext }),
+    chainWebpack: config => {
+      buildWebpackConfig({ config })
+    },
     async additionalPages() {
       const pages = await buildPages({ dirContext, componentContextMap })
       return pages

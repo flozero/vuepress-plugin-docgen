@@ -9,17 +9,17 @@ export default async ({
   context: IComponentContext
 }): Promise<IVuePressPage> => {
   const componentInfo = parse(context.absolutePathname)
-  let content = DocsParser(componentInfo)
+  let docs = DocsParser(componentInfo)
 
   const source = readFile(context.absolutePathname)
   const vueParser = new VueParser({ source, fileName: context.fileName })
 
   const docsBlock = vueParser.getCustomBlock('docs')
   context.existDocs = docsBlock !== null
-  content += docsBlock === null ? '' : docsBlock.content
+  docs += docsBlock === null ? '' : `## Example\n${docsBlock.content}`
 
   return {
     path: context.link,
-    content,
+    content: docs,
   }
 }
