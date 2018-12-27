@@ -37,6 +37,9 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
 
   return {
     name: NAME,
-    additionalPages: buildPages({ dirContext, componentContextMap }),
+    async additionalPages() {
+      const pages = await buildPages({ dirContext, componentContextMap })
+      return pages
+    },
   }
 }

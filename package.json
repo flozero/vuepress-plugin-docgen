@@ -4,7 +4,7 @@
   "description": "Vuepress plugin for document your component",
   "scripts": {
     "lint": "xo",
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "dev": "tsc -w"
   },
   "file": [
     "dist",
@@ -21,9 +21,11 @@
     "@types/chokidar": "^1.7.5",
     "@types/consola": "^1.0.0",
     "@types/fs-extra": "^5.0.4",
+    "@types/handlebars": "^4.0.40",
     "@types/minimatch": "^3.0.3",
     "@types/node": "^10.12.18",
     "@types/rimraf": "^2.0.2",
+    "copyfiles": "^2.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-rem": "^4.0.0",
     "eslint-config-xo-typescript": "^0.3.0",
@@ -80,7 +82,9 @@
     "chokidar": "^2.0.4",
     "consola": "^2.3.0",
     "fs-extra": "^7.0.1",
+    "handlebars": "^4.0.12",
     "minimatch": "^3.0.4",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "vue-docgen-api": "^2.6.11"
   }
 }

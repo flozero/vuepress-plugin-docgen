@@ -1,5 +1,5 @@
-import * as fs from 'fs'
 import * as path from 'path'
+import * as fs from 'fs-extra'
 import * as minimatch from 'minimatch'
 import * as rimraf from 'rimraf'
 
@@ -13,6 +13,19 @@ export const isMatchPathname = (pathname: string, globs: string[]): boolean => {
     }
   }
   return false
+}
+
+export const existPathname = (pathname: string): boolean => {
+  try {
+    fs.statSync(pathname)
+    return true
+  } catch (error) {
+    return false
+  }
+}
+
+const createDir = (pathname: string) => {
+  fs.mkdirSync(pathname)
 }
 
 export const extractFileName = (pathname: string): string | null => {
@@ -60,4 +73,23 @@ export const getFilePathnamesWithFilter = (
 
 export const removeDir = (dirPathname: string) => {
   rimraf.sync(dirPathname)
+}
+
+// Create dir before write file if dir isn't exists
+const ensureWriteProcess = (pathname: string) => {
+  const fileDirname = path.dirname(pathname)
+  if (existPathname(fileDirname)) {
+    return
+  }
+  ensureWriteProcess(fileDirname)
+  createDir(fileDirname)
+}
+
+export const writeFile = (pathname: string, data: string) => {
+  ensureWriteProcess(pathname)
+  fs.writeFileSync(pathname, data, { encoding: 'utf-8' })
+}
+
+export const readFile = (pathname: string): string => {
+  return fs.readFileSync(pathname, { encoding: 'utf-8' })
 }
