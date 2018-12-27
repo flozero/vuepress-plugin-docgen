@@ -1,4 +1,5 @@
 export { default as buildPlugins } from './plugins'
 export { default as buildWebpackConfig } from './webpack'
+export { default as buildEnhanceApp } from './enhancer/app'
 export * from './context'
 export * from './pages'

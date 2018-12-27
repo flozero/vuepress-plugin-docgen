@@ -8,6 +8,7 @@ import {
   buildPages,
   buildPlugins,
   buildWebpackConfig,
+  buildEnhanceApp,
 } from './build'
 import { removeDir } from './utils/file'
 
@@ -44,6 +45,7 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     chainWebpack: config => {
       buildWebpackConfig({ config })
     },
+    enhanceAppFiles: buildEnhanceApp({ componentContextMap }),
     additionalPages: buildPages({ dirContext, componentContextMap }),
   }
 }
