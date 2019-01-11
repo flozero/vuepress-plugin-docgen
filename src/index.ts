@@ -60,16 +60,26 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     ctx,
   })
 
-  logger.log('=======================================')
-
   const componentContextMap = buildComponentContext({
     dirContext,
   })
 
+  // reset folder dist
   removeDir(dirContext.docgenDir)
 
   // TODO: Watch & update
 
+  /**
+   * name if plugins
+   * plugins : will just add plugins @vuepress/register-components
+   * with the path from all of your components in rootDir
+   *
+   * chainewebpack for <docs> blocks
+   *
+   * enhanceAppFiles is that like a mixin ?
+   *
+   * additionalPages
+   */
   return {
     name: NAME,
     plugins: buildPlugins({ dirContext }),

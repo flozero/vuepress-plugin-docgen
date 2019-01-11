@@ -5,7 +5,7 @@ const buildSidebar = ({
 }: {
   componentContextMap: Map<string, IComponentContext[]>
 }) => {
-  const sidebar: string[] = ['/']
+  const sidebar: string[] = []
   for (const componentContexts of componentContextMap.values()) {
     componentContexts.forEach(context => {
       sidebar.push(context.link)
@@ -19,14 +19,26 @@ export default ({
 }: {
   componentContextMap: Map<string, IComponentContext[]>
 }) => {
-  const sidebar = buildSidebar({ componentContextMap })
+  const sidebar = [
+    {
+      title: 'Components',
+      collapsable: false,
+      children: buildSidebar({ componentContextMap }),
+    },
+  ]
+
+  console.log(sidebar)
 
   return {
     name: 'docgen-enhancer',
     content: `
       export default ({ siteData }) => {
-        const sidebar = ${JSON.stringify(sidebar)}
-        siteData.themeConfig.sidebar = sidebar
+        let sidebar = ${JSON.stringify(sidebar)}
+        console.log(sidebar);
+        sidebar = [siteData.themeConfig.sidebar, ...sidebar]
+        console.log(sidebar)
+        
+        siteData.themeConfig.sidebar =  sidebar
       }
     `,
   }
