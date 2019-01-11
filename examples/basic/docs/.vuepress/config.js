@@ -7,15 +7,23 @@ module.exports = {
       { text: 'Home', link: '/guide/getting-started' },
       { text: 'Github', link: 'https://github.com/youngtailors/vue-kawaii' },
     ],
-    sidebar: {
-        "/guide/":
+    sidebar: [
         {
             title: "Guide",
             collapsable: false,
+            sidebar: 'auto',
             children: ["/guide/", "/guide/getting-started"]
-
+        },
+        {
+            title: "Components"
         }
-    }
+    ]
+    // sidebar: {
+    //     '/guide/': [
+    //         "",
+    //         "getting-started"
+    //     ]
+    // }
   },
   plugins: [
     [

@@ -19,25 +19,25 @@ export default ({
 }: {
   componentContextMap: Map<string, IComponentContext[]>
 }) => {
-  const sidebar = [
-    {
-      title: 'Components',
-      collapsable: false,
-      children: buildSidebar({ componentContextMap }),
-    },
-  ]
-
-  console.log(sidebar)
+  const Components = {
+    title: 'Components',
+    collapsable: false,
+    children: buildSidebar({ componentContextMap }),
+  }
 
   return {
     name: 'docgen-enhancer',
     content: `
       export default ({ siteData }) => {
-        let sidebar = ${JSON.stringify(sidebar)}
-        console.log(sidebar);
-        sidebar = [siteData.themeConfig.sidebar, ...sidebar]
-        console.log(sidebar)
-        
+        let Components = ${JSON.stringify(Components)}
+
+        if (!siteData.themeConfig.sidebar.map) return;
+
+        let sidebar = siteData.themeConfig.sidebar.map((e, i) => {
+          if (e.title && (e.title == 'Components' || e.title == 'components')) return Components
+          else return e
+        })
+
         siteData.themeConfig.sidebar =  sidebar
       }
     `,
