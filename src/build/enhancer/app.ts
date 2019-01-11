@@ -32,11 +32,11 @@ export default ({
     extractKey.push(ind.substring(1))
   })
 
-  console.log('===================> extractKey =================', extractKey)
-  console.log(
-    '===================> componentContextMap =================',
-    componentContextMap,
-  )
+  // console.log('===================> extractKey =================', extractKey)
+  // console.log(
+  // '===================> componentContextMap =================',
+  // componentContextMap,
+  // )
 
   return {
     name: 'docgen-enhancer',
@@ -45,7 +45,7 @@ export default ({
         let Components = ${JSON.stringify(Components)}
         let contextComponent = ${JSON.stringify(extractKey)}
 
-        console.log("context==========================", contextComponent);
+        // console.log("context==========================", contextComponent);
 
         if (!siteData.themeConfig.sidebar.map) {
           for (let key in siteData.themeConfig.sidebar) {
@@ -58,7 +58,7 @@ export default ({
           })
           siteData.themeConfig.sidebar =  sidebar
         }
-        console.log(siteData.themeConfig.sidebar);
+        // console.log(siteData.themeConfig.sidebar);
           
       }
     `,
