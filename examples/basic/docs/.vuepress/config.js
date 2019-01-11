@@ -11,11 +11,10 @@ module.exports = {
         {
             title: "Guide",
             collapsable: false,
-            sidebar: 'auto',
             children: ["/guide/", "/guide/getting-started"]
         },
         {
-            title: "Components"
+            title: "Library"
         }
     ]
     // sidebar: {
@@ -30,7 +29,7 @@ module.exports = {
       require("../.../../../../../dist/index.js"),
       {
         rootDir: path.join(__dirname, '../../src/components'),
-        titleSidebar: "Ouh"
+        title: 'Library'
       },
     ],
   ],

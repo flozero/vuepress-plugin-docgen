@@ -60,6 +60,8 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     ctx,
   })
 
+  const title = options.title || 'Components'
+
   const componentContextMap = buildComponentContext({
     dirContext,
   })
@@ -86,7 +88,7 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     chainWebpack: config => {
       buildWebpackConfig({ config })
     },
-    enhanceAppFiles: buildEnhanceApp({ componentContextMap }),
+    enhanceAppFiles: buildEnhanceApp({ componentContextMap, title }),
     additionalPages: buildPages({ dirContext, componentContextMap }),
   }
 }

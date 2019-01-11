@@ -16,11 +16,13 @@ const buildSidebar = ({
 
 export default ({
   componentContextMap,
+  title,
 }: {
   componentContextMap: Map<string, IComponentContext[]>
+  title: string
 }) => {
   const Components = {
-    title: 'Components',
+    title,
     collapsable: false,
     children: buildSidebar({ componentContextMap }),
   }
@@ -34,7 +36,7 @@ export default ({
         if (!siteData.themeConfig.sidebar.map) return;
 
         let sidebar = siteData.themeConfig.sidebar.map((e, i) => {
-          if (e.title && (e.title == 'Components' || e.title == 'components')) return Components
+          if (e.title && e.title == Components.title) return Components
           else return e
         })
 
