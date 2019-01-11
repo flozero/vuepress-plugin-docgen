@@ -14,14 +14,15 @@ module.exports = {
             children: ["/guide/", "/guide/getting-started"]
         },
         {
-            title: "Library"
+            title: "Components"
         }
     ]
     // sidebar: {
     //     '/guide/': [
     //         "",
     //         "getting-started"
-    //     ]
+    //     ],
+    //     '/components/': []
     // }
   },
   plugins: [
@@ -29,7 +30,8 @@ module.exports = {
       require("../.../../../../../dist/index.js"),
       {
         rootDir: path.join(__dirname, '../../src/components'),
-        title: 'Library'
+        // title: '/components/'
+        title: 'Components'
       },
     ],
   ],
