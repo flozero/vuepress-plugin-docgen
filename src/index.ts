@@ -49,9 +49,6 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     process.exit(1)
   }
 
-  /**
-   * reference directly for more readability and controlled bug if there is
-   */
   const dirContext = buildDirContext({
     rootDir: options.rootDir as string,
     include: options.include,
@@ -59,8 +56,6 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     prefix: options.prefix,
     ctx,
   })
-
-  const title = options.title || 'Components'
 
   const componentContextMap = buildComponentContext({
     dirContext,
@@ -88,7 +83,7 @@ module.exports = (options: IDocgenOptions, ctx: IVuePressOpenContext) => {
     chainWebpack: config => {
       buildWebpackConfig({ config })
     },
-    enhanceAppFiles: buildEnhanceApp({ componentContextMap, title }),
+    enhanceAppFiles: buildEnhanceApp({ componentContextMap }),
     additionalPages: buildPages({ dirContext, componentContextMap }),
   }
 }

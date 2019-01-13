@@ -3,5 +3,4 @@ export interface IDocgenOptions {
   include?: string | string[]
   exclude?: string | string[]
   prefix?: string
-  title?: string
 }
