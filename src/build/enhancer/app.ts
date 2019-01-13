@@ -56,8 +56,6 @@ export default ({
           sidebar.push(multiple);
           siteData.themeConfig.sidebar =  sidebar
         }
-
-        console.log(siteData.themeConfig.sidebar);
       }
     `,
   }

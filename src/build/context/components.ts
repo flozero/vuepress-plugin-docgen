@@ -25,7 +25,6 @@ export const buildLink = ({
   distDirPrefix: string
 }): string => {
   // const slug = camelToHyphen(name)
-  // console.log(slug)
   const pathnamelist = relativePathname.split('/')
   pathnamelist.pop()
 
