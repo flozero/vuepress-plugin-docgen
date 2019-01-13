@@ -12,7 +12,13 @@ export default ({ context }: { context: IComponentContext }): IVuePressPage => {
 
   const docsBlock = vueParser.getCustomBlock('docs')
   context.existDocs = docsBlock !== null
-  docs += docsBlock === null ? '' : `## Example\n${docsBlock.content}`
+  const preview = docsBlock.content.replace(/(\r\n|\n|\r)/gm, '')
+  docs +=
+    docsBlock === null
+      ? ''
+      : `## Code\n\n\`\`\`html\n${preview}\n\`\`\`\n\n## Preview\n${
+          docsBlock.content
+        }`
 
   return {
     path: context.link,
