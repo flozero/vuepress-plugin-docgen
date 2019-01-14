@@ -12,6 +12,7 @@ export const buildIndexPage = ({
   const content = buildIndexPageMarkdown({
     componentContextMap,
   })
+
   return {
     path: `/${dirContext.prefix}/`,
     content,
@@ -40,6 +41,7 @@ export default ({
   dirContext: IDirContext
   componentContextMap: Map<string, IComponentContext[]>
 }): IVuePressPage[] => {
+  // receive an array of componentContextMap that have all informations about the component
   return [
     buildIndexPage({ dirContext, componentContextMap }),
     ...buildComponentPages({ componentContextMap }),

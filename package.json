@@ -5,7 +5,9 @@
   "scripts": {
     "lint": "xo",
     "dev": "tsc -w",
-    "build": "tsc"
+    "build": "tsc",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "files": [
     "dist",
@@ -39,6 +41,7 @@
     "ts-node": "^7.0.1",
     "typescript": "^3.1.4",
     "typescript-eslint-parser": "^21.0.2",
+    "vuepress": "^1.0.0-alpha.31",
     "xo": "^0.23.0"
   },
   "xo": {

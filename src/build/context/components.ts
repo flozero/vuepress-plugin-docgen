@@ -9,25 +9,27 @@ import {
   getFilePathnamesWithFilter,
   extractFileName,
 } from '../../utils/file'
-import { camelToHyphen } from '../../utils/common'
+// import { camelToHyphen } from '../../utils/common'
 
 const isVueFile = (pathname: string): boolean => {
   return extractFileExtension(pathname) === 'vue'
 }
 
 export const buildLink = ({
-  name,
+  // name,
   relativePathname,
   distDirPrefix,
 }: {
-  name: string
+  name?: string
   relativePathname: string
   distDirPrefix: string
 }): string => {
-  const slug = camelToHyphen(name)
+  // const slug = camelToHyphen(name)
   const pathnamelist = relativePathname.split('/')
   pathnamelist.pop()
-  return `/${path.join(distDirPrefix, ...pathnamelist, slug)}/`
+
+  // return `/${path.join(distDirPrefix, ...pathnamelist, slug)}/`
+  return `/${path.join(distDirPrefix, ...pathnamelist)}/`
 }
 
 const buildDocgenPathname = ({
