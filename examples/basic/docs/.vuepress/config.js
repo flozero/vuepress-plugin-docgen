@@ -5,7 +5,8 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: 'Home', link: '/guide/getting-started' },
-      { text: 'Github', link: 'https://github.com/youngtailors/vue-kawaii' },
+      { text: 'Components', link: '/components/' },
+      { text: 'Github', link: 'https://github.com/youngtailors/vue-kawaii' }
     ],
     // sidebar: [
     //   // add this if you want to position the library here
