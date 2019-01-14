@@ -40,10 +40,12 @@ module.exports = {
 ## See Who Is Using `component-docgen`
 
 - [vue-kawaii](https://github.com/youngtailors/vue-kawaii)
+- [vue-w3css](https://github.com/f3ltron/vuew3css)
 
 ## Contributors
 
 - [Evan N](https://github.com/dacsang97)
+- [F3ltron](https://github.com/f3ltron/)
 
 ## License
 
