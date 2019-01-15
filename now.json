@@ -1,0 +1,12 @@
+{
+  "name": "vuepress-plugin-component-docgen",
+  "alias": "vuepress-docgen",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": "docs/.vuepress/dist" }
+    }
+  ]
+}
