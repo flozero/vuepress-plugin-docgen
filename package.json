@@ -8,7 +8,7 @@
     "build": "tsc",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "now-build": "yarn build"
+    "now-build": "yarn docs:build"
   },
   "files": [
     "dist",
