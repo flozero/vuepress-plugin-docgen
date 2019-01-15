@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-component-docgen",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Vuepress plugin for document your component",
   "scripts": {
     "lint": "xo",
