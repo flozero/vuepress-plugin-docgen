@@ -6,13 +6,16 @@ import { DocsParser, VueParser } from '../../parse'
 export default ({ context }: { context: IComponentContext }): IVuePressPage => {
   const componentInfo = parse(context.absolutePathname)
   let docs = DocsParser(componentInfo)
+  let preview = ''
 
   const source = readFile(context.absolutePathname)
   const vueParser = new VueParser({ source, fileName: context.fileName })
 
   const docsBlock = vueParser.getCustomBlock('docs')
   context.existDocs = docsBlock !== null
-  const preview = docsBlock.content.replace(/(\r\n|\n|\r)/gm, '')
+  if (docsBlock) {
+    preview = docsBlock.content.replace(/(\r\n|\n|\r)/gm, '')
+  }
   docs +=
     docsBlock === null
       ? ''

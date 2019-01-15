@@ -28,7 +28,7 @@ export default ({
   const groups = {
     title: '/components/',
     collapsable: false,
-    children: [],
+    children: [] as string[],
   }
 
   componentContextMap.forEach((_, ind) =>
