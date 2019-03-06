@@ -6,7 +6,7 @@ module.exports = (finalContext) => {
   let sidebar = []
 
   let rootSidebar = {
-    title: '',
+    title: 'Globals',
     collapsable: false,
     children: []
   }

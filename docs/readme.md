@@ -1,5 +1,33 @@
 # Thank you for using us
 
+
+TODO:
+- refacto split code more
+- unit test everything
+
+
+code cycle:
+
+- parsedOptions
+- parse components folder
+- create archi
+- create files with an hbs template for indexes
+- create files with an hbs template for components
+- read vue custom docs blocks and inject it at the end of the the preview
+- modify in clientside sidebar
+
+LifeCycle Access:
+
+- custom Template parse
+- custom preview
+
+Debug Mode when ?
+
+- after parsed options
+- log errors
+- show sidebar archi
+
+
 > Vuepress plugin for creating a documentation site of your Vue component
 
 ![npm](https://img.shields.io/npm/v/vuepress-plugin-component-docgen.svg?style=flat-square)

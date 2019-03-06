@@ -20,7 +20,7 @@
    * @since Version 1.0.1
    */
   export default {
-    name: 'grid',
+    name: 'Test',
     props: {
  
       /**
@@ -122,7 +122,15 @@
           demo: 'example',
         })
       },
- 
+
+      /**
+         * asdakdaldalsdadadkld.
+         * @public
+         */
+      notHiddenMethod: function(){
+        console.log("adasd")
+      },
+      
       hiddenMethod: function(){
  
       }
