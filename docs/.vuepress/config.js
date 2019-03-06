@@ -7,6 +7,6 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Github', link: 'https://github.com/youngtailors/vuepress-plugin-component-docgen' },
-    ],
-  },
+    ]
+  }
 }

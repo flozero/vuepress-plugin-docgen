@@ -8,7 +8,8 @@
     "build": "tsc",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "now-build": "yarn docs:build"
+    "now-build": "yarn docs:build",
+    "test": "mocha --recursive --exclude node_modules --exclude src"
   },
   "files": [
     "dist",
@@ -16,19 +17,13 @@
   ],
   "main": "dist/index.js",
   "repository": {
-    "url": "dacsang97/vuepress-plugin-component-docgen",
+    "url": "f3ltron/vuepress-plugin-component-docgen",
     "type": "git"
   },
-  "author": "dacsang97<dacsang97@gmail.com>",
+  "author": "f3ltron<florent.giraud.16@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/chokidar": "^1.7.5",
-    "@types/consola": "^1.0.0",
-    "@types/fs-extra": "^5.0.4",
-    "@types/handlebars": "^4.0.40",
-    "@types/minimatch": "^3.0.3",
-    "@types/node": "^10.12.18",
-    "@types/rimraf": "^2.0.2",
+    "chai": "^4.2.0",
     "copyfiles": "^2.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-rem": "^4.0.0",
@@ -37,6 +32,8 @@
     "eslint-plugin-typescript": "^0.14.0",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
+    "mocha": "^6.0.2",
+    "node-dir": "^0.1.17",
     "nodemon": "^1.18.7",
     "prettier": "^1.15.2",
     "ts-node": "^7.0.1",
@@ -84,14 +81,14 @@
     }
   },
   "dependencies": {
-    "@vue/component-compiler-utils": "^2.3.1",
+    "@vue/component-compiler-utils": "^2.6.0",
     "chokidar": "^2.0.4",
-    "consola": "^2.3.0",
+    "consola": "^2.5.6",
     "fs-extra": "^7.0.1",
-    "handlebars": "^4.0.12",
+    "handlebars": "^4.1.0",
     "minimatch": "^3.0.4",
     "rimraf": "^2.6.2",
-    "vue-docgen-api": "^2.6.11",
-    "vue-template-compiler": "^2.5.21"
+    "vue-docgen-api": "^2.6.12",
+    "vue-template-compiler": "^2.6.8"
   }
 }
