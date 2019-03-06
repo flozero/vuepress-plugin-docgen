@@ -1,5 +1,5 @@
 const consola = require('consola');
-const { NAME } = require('../constants');
+const { NAME } = require('./constants');
 
 const logger = consola.create({
   defaults: {

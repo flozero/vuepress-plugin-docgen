@@ -1,6 +1,6 @@
 const dir = require('node-dir');
 
-module.exports.buildComponentContext = (options) => {
+module.exports.buildGlobalContext = (finalOpts) => {
   const ret = {
     children: [],
   };
@@ -8,7 +8,7 @@ module.exports.buildComponentContext = (options) => {
   const paths = [];
 
   dir
-    .files(options.rootDir, {
+    .files(finalOpts.rootDir, {
       sync: true,
       recursive: true,
     })
@@ -17,7 +17,7 @@ module.exports.buildComponentContext = (options) => {
       // TODO: fatigue ou je sais pas mais clair
       const splitPath = file.split('/');
       paths.push(splitPath.splice(0, splitPath.length - 1).join('/'));
-      const relativePath = file.substring(options.rootDir.length + 1);
+      const relativePath = file.substring(finalOpts.rootDir.length + 1);
       const extractPath = relativePath.split('/');
 
       if (extractPath.length > 1) {

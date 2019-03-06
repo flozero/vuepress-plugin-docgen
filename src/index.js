@@ -1,7 +1,11 @@
-const { NAME } = require('./constants');
-const { extractOptions } = require('./utils/options');
-const { buildComponentContext } = require('./context/components');
+const { NAME } = require('./utils/constants');
+
+const { extractOptions } = require('./extractors/options');
+
+const { buildGlobalContext } = require('./builders/context');
+
 const { registerPlugins } = require('./plugins/register-components');
+
 const buildComponentsPages = require('./builders/additionnalPages/buildComponentsPages');
 
 const docsBlockConfig = require('./utils/webpack');
@@ -10,22 +14,20 @@ const buildEnhanceApp = require('./builders/enhanceAppFile');
 
 const logger = require('./utils/logger');
 
-module.exports = (opts = {}) => {
-  if (!opts.debug) logger.pause();
+module.exports = (givenOpts = {}) => {
+  if (!givenOpts.debug) logger.pause();
 
-  logger.log('beforeParser options: ', opts);
+  const finalOpts = extractOptions(givenOpts);
 
-  const options = extractOptions(opts);
+  logger.log('finalOpts: ', finalOpts);
 
-  logger.log('afterParser options: ', options);
-
-  const builds = buildComponentContext(options);
+  const builds = buildGlobalContext(finalOpts);
 
   const finalContext = {
-    basePath: options.rootDir,
+    basePath: finalOpts.rootDir,
     componentsPathContext: builds.ret,
     componentsPath: builds.paths,
-    options,
+    options: finalOpts,
   };
 
   logger.log(finalContext);
