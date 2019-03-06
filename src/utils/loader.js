@@ -1,3 +1,3 @@
-module.exports = function(_, map) {
-    this.callback(null, '', map)
-  }
+module.exports = function loader(_, map) {
+  this.callback(null, '', map);
+};

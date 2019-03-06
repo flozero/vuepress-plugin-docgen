@@ -1,10 +1,8 @@
-module.exports.registerPlugins = (finalContext) => {
-    return [
-        [
-          '@vuepress/register-components',
-          {
-            componentsDir: finalContext.componentsPath,
-          },
-        ],
-      ]
-}
+module.exports.registerPlugins = finalContext => [
+  [
+    '@vuepress/register-components',
+    {
+      componentsDir: finalContext.componentsPath,
+    },
+  ],
+];

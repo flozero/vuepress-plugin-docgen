@@ -1,5 +1,5 @@
-module.exports.NAME = 'vuepress-plugin-component-docgen'
-module.exports.DEFAULT_PREFIX = 'components'
+module.exports.NAME = 'vuepress-plugin-component-docgen';
+module.exports.DEFAULT_PREFIX = 'components';
 
 module.exports.EXCLUDE = [
   '**/node_modules/**',
@@ -14,4 +14,4 @@ module.exports.EXCLUDE = [
   '**/.git/**',
   '.git/**',
   '.git',
-]
+];

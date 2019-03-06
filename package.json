@@ -4,12 +4,13 @@
   "description": "Vuepress plugin for document your component",
   "scripts": {
     "lint": "xo",
-    "dev": "tsc -w",
     "build": "tsc",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "now-build": "yarn docs:build",
-    "test": "mocha --recursive --exclude node_modules --exclude src"
+    "test": "mocha --recursive --exclude node_modules --exclude src",
+    "eslint": "eslint",
+    "eslint:fix": "npm run eslint -- --fix ./src"
   },
   "files": [
     "dist",
@@ -25,9 +26,12 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "copyfiles": "^2.1.0",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-rem": "^4.0.0",
     "eslint-config-xo-typescript": "^0.3.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-typescript": "^0.14.0",
     "husky": "^1.2.0",
@@ -40,44 +44,11 @@
     "typescript": "^3.1.4",
     "typescript-eslint-parser": "^21.0.2",
     "vuepress": "^1.0.0-alpha.31",
+    "watch": "^1.0.2",
     "xo": "^0.23.0"
-  },
-  "xo": {
-    "extends": [
-      "rem",
-      "plugin:prettier/recommended",
-      "xo-typescript"
-    ],
-    "extensions": [
-      "ts"
-    ],
-    "rules": {
-      "unicorn/filename-case": "off",
-      "new-cap": "off",
-      "typescript/no-inferrable-types": "off",
-      "import/no-unassigned-import": "off",
-      "typescript/explicit-function-return-type": "off",
-      "no-throw-literal": "off",
-      "typescript/member-delimiter-style": "off",
-      "no-useless-return": "off",
-      "unicorn/no-process-exit": "off"
-    }
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "linters": {
-      "*.{ts,js}": [
-        "xo --fix",
-        "git add"
-      ],
-      "*.{json,md}": [
-        "prettier --write",
-        "git add"
-      ]
     }
   },
   "dependencies": {

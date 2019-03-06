@@ -8,7 +8,7 @@ module.exports = {
             require("../../../../src/index"),
             {
                 rootDir: path.join(__dirname, '../../../components'),
-                // debug: true,
+                // debug: true
             }
         ]
     ],

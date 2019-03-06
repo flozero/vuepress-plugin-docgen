@@ -35,4 +35,4 @@ module.exports = `
 | ------------- |------------- | -------------|
 | {{@key}} | {{#each this.type}}{{this}}{{/each}} | {{ this.description }}
 {{/each}}
-`
+`;
