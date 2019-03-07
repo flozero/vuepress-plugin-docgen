@@ -1,4 +1,10 @@
 const dir = require('node-dir');
+const { extractDirPathFromFile, extractRelativePath } = require('../../extractors/pathReader');
+
+module.exports.hasKey = (obj, key) => Object.prototype.hasOwnProperty.call(
+  obj,
+  key,
+);
 
 module.exports.buildGlobalContext = (finalOpts) => {
   const ret = {
@@ -14,30 +20,34 @@ module.exports.buildGlobalContext = (finalOpts) => {
     })
     .filter(file => file.match(/\.(vue)$/))
     .map((file) => {
-      // TODO: fatigue ou je sais pas mais clair
-      const splitPath = file.split('/');
-      paths.push(splitPath.splice(0, splitPath.length - 1).join('/'));
-      const relativePath = file.substring(finalOpts.rootDir.length + 1);
-      const extractPath = relativePath.split('/');
+      // TODO: vraiment necessaire ?
+      const dirPath = extractDirPathFromFile(file);
+      paths.push(dirPath);
 
-      if (extractPath.length > 1) {
-        ret[extractPath[0]] = {
-          ...ret[extractPath[0]],
-        };
+      const relativePath = extractRelativePath(finalOpts.rootDir, file);
 
-        const childrenKey = Object.prototype.hasOwnProperty.call(
-          ret[extractPath[0]],
-          'children',
-        );
-        if (!childrenKey) ret[extractPath[0]].children = [];
-        ret[extractPath[0]].children.push(extractPath.splice(1).join('/'));
+      const splitRelativePath = relativePath.split('/');
+
+      const isSubPath = splitRelativePath.length > 1;
+
+      if (isSubPath) {
+        const keyObj = splitRelativePath[0];
+
+        ret[keyObj] = { ...ret[keyObj] };
+
+        if (!module.exports.hasKey(ret[keyObj], 'children')) ret[keyObj].children = [];
+
+        const subRelativePath = splitRelativePath.splice(1).join('/');
+        ret[keyObj].children.push(subRelativePath);
       } else {
         ret.children.push(relativePath);
       }
       return file;
     });
   return {
-    ret,
-    paths,
+    basePath: finalOpts.rootDir,
+    componentsPathContext: ret,
+    componentsPath: paths,
+    options: finalOpts,
   };
 };

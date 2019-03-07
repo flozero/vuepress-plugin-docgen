@@ -21,22 +21,15 @@ module.exports = (givenOpts = {}) => {
 
   logger.log('finalOpts: ', finalOpts);
 
-  const builds = buildGlobalContext(finalOpts);
+  const globalContext = buildGlobalContext(finalOpts);
 
-  const finalContext = {
-    basePath: finalOpts.rootDir,
-    componentsPathContext: builds.ret,
-    componentsPath: builds.paths,
-    options: finalOpts,
-  };
-
-  logger.log(finalContext);
+  logger.log(globalContext);
 
   return {
     name: NAME,
-    plugins: registerPlugins(finalContext),
+    plugins: registerPlugins(globalContext),
     chainWebpack: docsBlockConfig,
-    enhanceAppFiles: buildEnhanceApp(finalContext),
-    additionalPages: buildComponentsPages(finalContext),
+    enhanceAppFiles: buildEnhanceApp(globalContext),
+    additionalPages: buildComponentsPages(globalContext),
   };
 };

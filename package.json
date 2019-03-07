@@ -48,8 +48,7 @@
     "xo": "^0.23.0"
   },
   "husky": {
-    "hooks": {
-    }
+    "hooks": {}
   },
   "dependencies": {
     "@vue/component-compiler-utils": "^2.6.0",

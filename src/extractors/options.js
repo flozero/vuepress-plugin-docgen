@@ -29,7 +29,7 @@ module.exports.isFound = (key) => {
 module.exports.isGoodTyped = (key, obj) => {
   if (typeof obj[key] !== module.exports.options[key].type) { /* eslint-disable-line */
     logger.error(
-      `type of: ${key} should be type of ${module.exports.options[key].type}`,
+      `type of: ${key} should be of type ${module.exports.options[key].type}, received ${typeof obj[key]}`,
     );
     return false;
   }
@@ -95,14 +95,12 @@ module.exports.extractOptions = (givenOpts) => {
   keysValid = module.exports.isAllKeyFounded(givenOpts);
 
   if (keysValid) {
-    goodTyped = module.exports.isAllKeyFounded(givenOpts);
+    goodTyped = module.exports.isAllKeyGoodTyped(givenOpts);
   }
 
   const optionsAllTrue = module.exports.isOptionsAlltrue(module.exports.options);
 
-  if (!optionsAllTrue || !keysValid || !goodTyped) {
-    process.exit(1);
-  }
+  if (!optionsAllTrue || !keysValid || !goodTyped) return process.exit(1);
 
   if (!path.isAbsolute(givenOpts.rootDir)) {
     logger.error('path must be absolute path');
