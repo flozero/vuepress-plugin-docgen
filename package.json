@@ -3,20 +3,17 @@
   "version": "0.1.0",
   "description": "Vuepress plugin for document your component",
   "scripts": {
-    "lint": "xo",
-    "build": "tsc",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "now-build": "yarn docs:build",
     "test": "mocha --recursive --exclude node_modules --exclude src",
     "eslint": "eslint",
     "eslint:fix": "npm run eslint -- --fix ./src"
   },
   "files": [
-    "dist",
+    "src",
     "README.md"
   ],
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "repository": {
     "url": "f3ltron/vuepress-plugin-component-docgen",
     "type": "git"
@@ -25,39 +22,27 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",
-    "copyfiles": "^2.1.0",
     "eslint": "^5.15.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-rem": "^4.0.0",
-    "eslint-config-xo-typescript": "^0.3.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-typescript": "^0.14.0",
     "husky": "^1.2.0",
-    "lint-staged": "^8.1.0",
     "mocha": "^6.0.2",
     "node-dir": "^0.1.17",
-    "nodemon": "^1.18.7",
     "prettier": "^1.15.2",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.1.4",
-    "typescript-eslint-parser": "^21.0.2",
-    "vuepress": "^1.0.0-alpha.31",
-    "watch": "^1.0.2",
-    "xo": "^0.23.0"
+    "vuepress": "^1.0.0-alpha.31"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "npm run test"
+    }
   },
   "dependencies": {
     "@vue/component-compiler-utils": "^2.6.0",
-    "chokidar": "^2.0.4",
     "consola": "^2.5.6",
-    "fs-extra": "^7.0.1",
     "handlebars": "^4.1.0",
-    "minimatch": "^3.0.4",
-    "rimraf": "^2.6.2",
     "vue-docgen-api": "^2.6.12",
     "vue-template-compiler": "^2.6.8"
   }

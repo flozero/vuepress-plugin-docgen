@@ -9,7 +9,6 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
-    "fs-extra": "^7.0.1",
     "vue": "^2.6.6"
   },
   "devDependencies": {
