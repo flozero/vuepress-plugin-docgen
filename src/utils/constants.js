@@ -1,1 +1,1 @@
-module.exports.NAME = 'vuepress-plugin-component-docgen';
+module.exports.NAME = 'vuepress-component-docgen';
