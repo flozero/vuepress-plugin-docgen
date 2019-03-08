@@ -1,20 +1,21 @@
 /* eslint-disable */
 const logger = require("../../utils/logger");
+const { dropVueExtension } = require("../../extractors/name")
 
 module.exports = (finalContext) => {
-  let rootChildren = finalContext.componentsPathContext.children || []
-  let sidebar = []
+  let rootChildren = finalContext.componentsPathContext.children
 
   let rootSidebar = {
-    title: 'Globals',
+    title: finalContext.options.globalName,
     collapsable: false,
     children: []
   }
+
   rootChildren.forEach(c => {
-    rootSidebar.children.push(c.split('.')[0])
+    rootSidebar.children.push(dropVueExtension(c))
   })
 
-  let subDir = []
+  let subSideBar = []
 
   for (let k in finalContext.componentsPathContext) {
     if (k !== 'children') {
@@ -26,9 +27,9 @@ module.exports = (finalContext) => {
       finalContext.componentsPathContext[k].children.forEach(c => {
         let lastName = c.split('/')
         lastName = lastName[lastName.length - 1]
-        tmp.children.push(k + '/' + lastName.split('.')[0])
+        tmp.children.push(k + '/' + dropVueExtension(lastName))
       });
-      subDir.push(tmp);
+      subSideBar.push(tmp);
     }
   }
 
@@ -42,12 +43,13 @@ module.exports = (finalContext) => {
         siteData // site metadata
       }) => {
         let rootSidebar = ${JSON.stringify(rootSidebar)};
-        let sidebarPageName = '${finalContext.options.sideBarName}'
-        let subDir = ${JSON.stringify(subDir)}
+        let subSideBar = ${JSON.stringify(subSideBar)}
+
+        let sidebarPageName = '/${finalContext.options.sideBarName}/'
 
         siteData.themeConfig.sidebar[sidebarPageName] = [
           {...rootSidebar},
-          ...subDir
+          ...subSideBar
         ]
       }
     `,

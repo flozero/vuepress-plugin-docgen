@@ -4,49 +4,44 @@ const fs = require('fs');
 const { getCompiledTemplateWithHbs } = require('../handlebars');
 const VueParser = require('../../parser/vue');
 
-// TODO: add the possibility to let people add a custom template for the index
-const buildIndexPageComponent = sideBarName => ({
-  path: sideBarName,
-  content: '# Components',
-});
+const {getFileNameFromAbsolutePath} = require("../../extractors/pathReader")
+const {dropVueExtension} = require("../../extractors/name")
 
-// TODO: refacto a faire ici beaucoup trop de trucs
-const buildComponentPage = (absolutePath, parentPath) => {
+const buildIndexPageComponent = finalContext => {
+  const contentTemplate = finalContext.options.globalIndexComponentTemplate
+  return {
+    path: `/${finalContext.options.sideBarName}`,
+    content: getCompiledTemplateWithHbs(finalContext, contentTemplate)
+  }
+};
+
+const buildComponentPage = (absolutePath, parentPath, finalContext) => {
   let preview = '';
 
   const componentInfo = parse(absolutePath);
+  const componentPreviewCompiled = getCompiledTemplateWithHbs(
+        componentInfo, 
+        finalContext.options.componentsDocsTemplate);
 
-  const handleBarCompilation = getCompiledTemplateWithHbs(componentInfo);
+  const readedComponent = fs.readFileSync(absolutePath, { encoding: 'utf-8'});
 
-  const componentStringify = fs.readFileSync(absolutePath, {
-    encoding: 'utf-8',
-  });
-
-  let componentName = absolutePath.split('/');
-
-  componentName = componentName[componentName.length - 1];
-
-  componentName = componentName.split('.');
+  let componentName = getFileNameFromAbsolutePath(absolutePath)
+  componentName = dropVueExtension(componentName);
 
   const vueParser = new VueParser({
-    source: componentStringify,
-    fileName: componentName[0],
+    source: readedComponent,
+    fileName: componentName,
   });
 
   const docsBlock = vueParser.getCustomBlock('docs');
 
-  if (docsBlock) {
-    preview = `## Code\n\n\`\`\`html\n${docsBlock.content.replace(
-      /(\r\n|\n|\r)/gm,
-      '',
-    )}\n\`\`\`\n\n## Preview\n${docsBlock.content}`;
-  }
+  if (docsBlock) preview = finalContext.options.docsBlockTemplate(docsBlock);
 
-  let content = handleBarCompilation;
+  let content = componentPreviewCompiled;
   content += preview;
 
   return {
-    path: `${parentPath + componentName[0]}.html`,
+    path: `${parentPath + componentName}.html`,
     content,
   };
 };
@@ -55,15 +50,16 @@ module.exports = (finalContext) => {
   const ctx = finalContext.componentsPathContext;
   const { rootDir } = finalContext.options;
   const componentsPages = [];
+  const prefix = finalContext.options.sideBarName
 
-  // TODO: '/components/' ne doit pas etre en dur
   Object.keys(ctx).forEach((k) => {
     if (k === 'children') {
       ctx[k].forEach((componentRelativePath) => {
         componentsPages.push(
           buildComponentPage(
             `${rootDir}/${componentRelativePath}`,
-            '/components/',
+            `/${prefix}/`,
+            finalContext
           ),
         );
       });
@@ -72,7 +68,8 @@ module.exports = (finalContext) => {
         componentsPages.push(
           buildComponentPage(
             `${rootDir}/${k}/${componentRelativePath}`,
-            `/components/${k}/`,
+            `/${prefix}/${k}/`,
+            finalContext
           ),
         );
       });
@@ -80,7 +77,7 @@ module.exports = (finalContext) => {
   });
 
   return [
-    buildIndexPageComponent(finalContext.options.sideBarName),
+    buildIndexPageComponent(finalContext),
     ...componentsPages,
   ];
 };

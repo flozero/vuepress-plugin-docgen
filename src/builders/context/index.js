@@ -20,9 +20,8 @@ module.exports.buildGlobalContext = (finalOpts) => {
     })
     .filter(file => file.match(/\.(vue)$/))
     .map((file) => {
-      // TODO: vraiment necessaire ?
-      const dirPath = extractDirPathFromFile(file);
-      paths.push(dirPath);
+      const dirPathForGlobalRequire = extractDirPathFromFile(file);
+      paths.push(dirPathForGlobalRequire);
 
       const relativePath = extractRelativePath(finalOpts.rootDir, file);
 

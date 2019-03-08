@@ -8,7 +8,9 @@ module.exports = {
             require("../../../../src/index"),
             {
                 rootDir: path.join(__dirname, '../../../components'),
-                debug: true
+                'globalIndexComponentTemplate': 'alsdjaskldjasldkj',
+                // sideBarName: 'boulbi'
+                // debug: true,
             }
         ]
     ],

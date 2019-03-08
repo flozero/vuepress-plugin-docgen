@@ -10,7 +10,7 @@ const buildComponentsPages = require('./builders/additionnalPages/buildComponent
 
 const docsBlockConfig = require('./utils/webpack');
 
-const buildEnhanceApp = require('./builders/enhanceAppFile');
+const buildSideBar = require('./builders/sidebar');
 
 const logger = require('./utils/logger');
 
@@ -29,7 +29,7 @@ module.exports = (givenOpts = {}) => {
     name: NAME,
     plugins: registerPlugins(globalContext),
     chainWebpack: docsBlockConfig,
-    enhanceAppFiles: buildEnhanceApp(globalContext),
+    enhanceAppFiles: buildSideBar(globalContext),
     additionalPages: buildComponentsPages(globalContext),
   };
 };

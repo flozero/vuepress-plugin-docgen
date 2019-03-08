@@ -1,5 +1,8 @@
 const path = require('path');
 const logger = require('../utils/logger');
+const globalIndexComponentTemplate = require("../templates/globalIndexComponentTemplate");
+const docsBlockTemplate = require("../templates/docsBlockTemplate");
+const topTemplate = require('../templates/componentsTemplate');
 
 module.exports.options = {
   rootDir: {
@@ -13,8 +16,24 @@ module.exports.options = {
   },
   sideBarName: {
     type: 'string',
-    default: '/components/',
+    default: 'components',
   },
+  globalName: {
+    type: 'string',
+    default: 'Globals'
+  },
+  globalIndexComponentTemplate: {
+    type: 'string',
+    default: globalIndexComponentTemplate
+  },
+  docsBlockTemplate: {
+    type: 'function',
+    default: docsBlockTemplate
+  },
+  componentsDocsTemplate: {
+    type: 'string',
+    default: topTemplate
+  }
 };
 
 module.exports.isFound = (key) => {
