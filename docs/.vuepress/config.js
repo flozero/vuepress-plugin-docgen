@@ -8,5 +8,6 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'Github', link: 'https://github.com/youngtailors/vuepress-plugin-component-docgen' },
     ]
-  }
+  },
+  base: "/<REPO>/"
 }
