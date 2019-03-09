@@ -19,6 +19,14 @@
     "url": "f3ltron/vuepress-component-docgen",
     "type": "git"
   },
+  "keywords": [
+    "vuepress",
+    "vuepress-plugin-component-docgen",
+    "vuepress-component-docgen",
+    "vuejs",
+    "documentation",
+    "docgen"
+  ],
   "author": "f3ltron<florent.giraud.16@gmail.com>",
   "license": "MIT",
   "devDependencies": {
