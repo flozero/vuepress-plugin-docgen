@@ -2,12 +2,10 @@ module.exports = {
   title: 'VuePress Docgen',
   description: 'Preview your components',
   themeConfig: {
-    lastUpdated: 'Last Updated',
-    search: false,
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Github', link: 'https://github.com/youngtailors/vuepress-plugin-component-docgen' },
+      { text: 'Github', link: 'https://github.com/f3ltron/vuepress-component-docgen' },
     ]
   },
-  base: "/<REPO>/"
+  base: "/vuepress-component-docgen/"
 }

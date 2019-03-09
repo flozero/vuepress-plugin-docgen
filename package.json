@@ -16,7 +16,7 @@
   ],
   "main": "src/index.js",
   "repository": {
-    "url": "f3ltron/vuepress-plugin-component-docgen",
+    "url": "f3ltron/vuepress-component-docgen",
     "type": "git"
   },
   "author": "f3ltron<florent.giraud.16@gmail.com>",
@@ -27,20 +27,15 @@
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.15.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-config-rem": "^4.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-prettier": "^3.0.0",
     "husky": "^1.2.0",
     "mocha": "^6.0.2",
     "node-dir": "^0.1.17",
     "prettier": "^1.15.2",
-    "vuepress": "^1.0.0-alpha.31"
+    "vuepress": "^1.0.0-alpha.42"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test",
-      "post-commit": "./deploy.sh"
+      "pre-commit": "npm run test"
     }
   },
   "dependencies": {
