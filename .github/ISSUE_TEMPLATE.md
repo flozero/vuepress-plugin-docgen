@@ -1,6 +1,6 @@
 <!--
 
-Have you read Atom's Code of Conduct? By filing an Issue, you are expected to comply with it, including treating everyone with respect: https://github.com/f3ltron/vuepress-plugin-component-docgen/blob/master/CODE_OF_CONDUCT.md
+Have you read Code of Conduct? By filing an Issue, you are expected to comply with it, including treating everyone with respect: https://github.com/f3ltron/vuepress-component-docgen/blob/master/.github/CODE_OF_CONDUCT.md
 
 Do you want to ask a question? Are you looking for support? The Atom message board is the best place for getting support: [HERE](https://vue-land.js.org/)
 

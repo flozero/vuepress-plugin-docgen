@@ -32,7 +32,7 @@ This project and everyone participating in it is governed by the [Code of Conduc
 
 ### documentation
 
-TODO: part is coming
+click [Here](https://f3ltron.github.io/vuepress-component-docgen/)
 
 ### discord
 
@@ -45,7 +45,8 @@ go [HERE](https://vue-land.js.org/). If you have any question come here and ask 
 #### Before Submitting A Bug Report
 
 Read the doc :)
-TODO: part is coming
+click [Here](https://f3ltron.github.io/vuepress-component-docgen/)
+
 
 #### How Do I Submit A (Good) Bug Report?
 
