@@ -2,9 +2,5 @@ language: node_js
 sudo: false
 node_js:
   - 10
-  - 9
-  - 8
-  - 7
-  - 6
 script:
   - npm test
