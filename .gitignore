@@ -91,6 +91,8 @@ typings/
 # next.js build output
 .next
 
+docs/.vuepress/dist
+
 # nuxt.js build output
 .nuxt
 
