@@ -25,6 +25,13 @@ module.exports = (givenOpts = {}) => {
 
   logger.log(globalContext);
 
+  if (finalOpts.debug) {
+    setTimeout(() => {
+      logger.log("[DEBUG EXIT] vuepress-component-docgen")
+      process.exit(0);
+    }, 0)
+  }
+
   return {
     name: NAME,
     plugins: registerPlugins(globalContext),

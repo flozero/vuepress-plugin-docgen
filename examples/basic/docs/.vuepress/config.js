@@ -7,7 +7,7 @@ module.exports = {
         [
             require("../../../../src/index"),
             {
-                rootDir: path.join(__dirname, '../../../components'),
+                componentsDir: path.join(__dirname, '../../../components'),
                 'globalIndexComponentTemplate': 'alsdjaskldjasldkj',
                 // sideBarName: 'boulbi'
                 // debug: true,

@@ -14,10 +14,10 @@ logger.pause()
 
 describe("isGoodTyped()", function() {
     it('should return false when key is not good typed', function() {
-        expect(isGoodTyped('rootDir', {'rootDir': {}})).to.be.false
+        expect(isGoodTyped('componentsDir', {'componentsDir': {}})).to.be.false
     })
     it('should return true when key is well typed', function() {
-        expect(isGoodTyped('rootDir', {'rootDir': 'asdasdklaj'})).to.be.true
+        expect(isGoodTyped('componentsDir', {'componentsDir': 'asdasdklaj'})).to.be.true
     })
 })
 
@@ -78,13 +78,13 @@ describe('isAllKeyGoodTyped()', function() {
 
     it('should return false when one error about type', function() {
         const obj1 = {
-            rootDir: "asdsddad",
+            componentsDir: "asdsddad",
             debug: "asdsds",
             sideBarName: "asda"
         }
 
         const obj2 = {
-            rootDir: "asdsddad",
+            componentsDir: "asdsddad",
             debug: true,
             sideBarName: false
         }
@@ -94,7 +94,7 @@ describe('isAllKeyGoodTyped()', function() {
 
     it('should return true', function() {
         const obj = {
-            rootDir: "asdsddad",
+            componentsDir: "asdsddad",
             debug: true,
             sideBarName: "asda"
         }

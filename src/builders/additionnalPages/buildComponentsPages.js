@@ -48,7 +48,7 @@ const buildComponentPage = (absolutePath, parentPath, finalContext) => {
 
 module.exports = (finalContext) => {
   const ctx = finalContext.componentsPathContext;
-  const { rootDir } = finalContext.options;
+  const { componentsDir } = finalContext.options;
   const componentsPages = [];
   const prefix = finalContext.options.sideBarName
 
@@ -57,7 +57,7 @@ module.exports = (finalContext) => {
       ctx[k].forEach((componentRelativePath) => {
         componentsPages.push(
           buildComponentPage(
-            `${rootDir}/${componentRelativePath}`,
+            `${componentsDir}/${componentRelativePath}`,
             `/${prefix}/`,
             finalContext
           ),
@@ -67,7 +67,7 @@ module.exports = (finalContext) => {
       ctx[k].children.forEach((componentRelativePath) => {
         componentsPages.push(
           buildComponentPage(
-            `${rootDir}/${k}/${componentRelativePath}`,
+            `${componentsDir}/${k}/${componentRelativePath}`,
             `/${prefix}/${k}/`,
             finalContext
           ),

@@ -14,7 +14,7 @@ module.exports.buildGlobalContext = (finalOpts) => {
   const paths = [];
 
   dir
-    .files(finalOpts.rootDir, {
+    .files(finalOpts.componentsDir, {
       sync: true,
       recursive: true,
     })
@@ -23,7 +23,7 @@ module.exports.buildGlobalContext = (finalOpts) => {
       const dirPathForGlobalRequire = extractDirPathFromFile(file);
       paths.push(dirPathForGlobalRequire);
 
-      const relativePath = extractRelativePath(finalOpts.rootDir, file);
+      const relativePath = extractRelativePath(finalOpts.componentsDir, file);
 
       const splitRelativePath = relativePath.split('/');
 
@@ -44,7 +44,7 @@ module.exports.buildGlobalContext = (finalOpts) => {
       return file;
     });
   return {
-    basePath: finalOpts.rootDir,
+    basePath: finalOpts.componentsDir,
     componentsPathContext: ret,
     componentsPath: paths,
     options: finalOpts,

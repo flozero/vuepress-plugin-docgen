@@ -1,11 +1,22 @@
-# Thank you for using us
+---
+home: true
+tagline: Vuepress-component-docgen
+actionText: Get Started →
+actionLink: /guide/
+features:
+- title: Simplicity First
+  details: Minimal setup to helps you focus on writing.
+- title: Customisable
+  details: All templates are customisables
+- title: Easy to particpate
+  details: Check the contributing guide and you dream <3 
+footer: MIT Licensed | Copyright © 2019-f3ltron
+---
 
-> Vuepress plugin for creating a documentation site of your Vue component
+<!-- ⛔️ AUTO-GENERATED-CONTENT:START (CONTRIBUTORS) -->
+| **Commits** | **Contributor** |  
+| --- | --- |  
+| 33 | [f3ltron](https://github.com/f3ltron) |  
+| 22 | [dacsang97](https://github.com/dacsang97) |  
 
-## Contributors
-
-- [f3ltron](https://github.com/f3ltron/)
-
-## License
-
-MIT &copy; f3ltron
+<!-- ⛔️ AUTO-GENERATED-CONTENT:END -->

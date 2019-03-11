@@ -1,6 +1,6 @@
 /* eslint-disable */
-const logger = require("../../utils/logger");
 const { dropVueExtension } = require("../../extractors/name")
+const logger = require("../../utils/logger");
 
 module.exports = (finalContext) => {
   let rootChildren = finalContext.componentsPathContext.children
@@ -10,7 +10,6 @@ module.exports = (finalContext) => {
     collapsable: false,
     children: []
   }
-
   rootChildren.forEach(c => {
     rootSidebar.children.push(dropVueExtension(c))
   })
@@ -32,6 +31,9 @@ module.exports = (finalContext) => {
       subSideBar.push(tmp);
     }
   }
+
+  logger.log("[RootSidebar]", rootSidebar)
+  logger.log("[SubSideBar]", subSideBar)
 
   return {
     name: 'docgen-enhancer',

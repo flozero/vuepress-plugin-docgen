@@ -5,7 +5,7 @@ const docsBlockTemplate = require("../templates/docsBlockTemplate");
 const topTemplate = require('../templates/componentsTemplate');
 
 module.exports.options = {
-  rootDir: {
+  componentsDir: {
     type: 'string',
     required: true,
     found: false,
@@ -121,7 +121,7 @@ module.exports.extractOptions = (givenOpts) => {
 
   if (!optionsAllTrue || !keysValid || !goodTyped) return process.exit(1);
 
-  if (!path.isAbsolute(givenOpts.rootDir)) {
+  if (!path.isAbsolute(givenOpts.componentsDir)) {
     logger.error('path must be absolute path');
     process.exit(1);
   }
