@@ -1,6 +1,6 @@
 {
   "name": "vuepress-component-docgen",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Vuepress plugin for document your component",
   "scripts": {
     "docs:dev": "vuepress dev docs",
@@ -9,7 +9,8 @@
     "eslint": "eslint",
     "eslint:fix": "npm run eslint -- --fix ./src",
     "commit": "git-cz",
-    "release": "standard-version -i docs/CHANGELOG.md -a true"
+    "release": "standard-version -i docs/CHANGELOG.md -a true",
+    "fix": "npm run release -- --release-as patch"
   },
   "files": [
     "src",
@@ -41,7 +42,6 @@
     "markdown-magic-github-contributors": "0.0.3",
     "markdown-magic-version-badge": "^1.1.1",
     "mocha": "^6.0.2",
-    "node-dir": "^0.1.17",
     "prettier": "^1.15.2",
     "standard-version": "^5.0.1",
     "vuepress": "^1.0.0-alpha.42"
@@ -56,7 +56,8 @@
     "consola": "^2.5.6",
     "handlebars": "^4.1.0",
     "vue-docgen-api": "^2.6.12",
-    "vue-template-compiler": "^2.6.8"
+    "vue-template-compiler": "^2.6.8",
+    "node-dir": "^0.1.17"
   },
   "config": {
     "commitizen": {
