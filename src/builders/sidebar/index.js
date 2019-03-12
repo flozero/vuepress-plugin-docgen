@@ -49,6 +49,7 @@ module.exports = (finalContext) => {
 
         let sidebarPageName = '/${finalContext.options.sideBarName}/'
 
+        if (!siteData.themeConfig['sidebar']) siteData.themeConfig['sidebar'] = {}
         siteData.themeConfig.sidebar[sidebarPageName] = [
           {...rootSidebar},
           ...subSideBar
