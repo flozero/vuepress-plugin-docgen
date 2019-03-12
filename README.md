@@ -1,4 +1,4 @@
-# vuepress-plugin-component-docgen
+# vuepress-component-docgen
 
 > Vuepress plugin for creating a documentation site of your Vue components
 
