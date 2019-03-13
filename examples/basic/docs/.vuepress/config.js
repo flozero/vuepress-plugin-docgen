@@ -10,7 +10,7 @@ module.exports = {
                 componentsDir: path.join(__dirname, '../../../components'),
                 'globalIndexComponentTemplate': 'alsdjaskldjasldkj',
                 // sideBarName: 'boulbi'
-                // debug: true,
+                debug: true,
             }
         ]
     ],
@@ -44,7 +44,11 @@ module.exports = {
                     ]
                 }
             ]
-        }
+        },
+        nav: [
+            { text: 'Home', link: '/' },
+            { text: 'Components', link: '/components/' },
+        ]
     }
     
 }

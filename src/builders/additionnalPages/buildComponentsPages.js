@@ -10,7 +10,7 @@ const {dropVueExtension} = require("../../extractors/name")
 const buildIndexPageComponent = finalContext => {
   const contentTemplate = finalContext.options.globalIndexComponentTemplate
   return {
-    path: `/${finalContext.options.sideBarName}`,
+    path: `/${finalContext.options.sideBarName}/`,
     content: getCompiledTemplateWithHbs(finalContext, contentTemplate)
   }
 };
