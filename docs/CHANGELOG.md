@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.7](https://github.com/f3ltron/vuepress-component-docgen/compare/v0.9.6...v0.9.7) (2019-03-13)
+
+
+### Bug Fixes
+
+* **sidebar:** correcting the sidebar path ([b99d047](https://github.com/f3ltron/vuepress-component-docgen/commit/b99d047))
+
+
+
 ## [0.9.6](https://github.com/f3ltron/vuepress-component-docgen/compare/v0.9.5...v0.9.6) (2019-03-12)
 
 
