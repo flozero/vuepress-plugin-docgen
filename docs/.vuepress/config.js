@@ -29,7 +29,6 @@ module.exports = {
           ]
         }
       ],
-      
     },
   },
   base: "/vuepress-component-docgen/"

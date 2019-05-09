@@ -3,13 +3,12 @@ const path = require('path');
 module.exports = {
     title: 'Hello VuePress',
     description: 'Just playing around',
+    extend: '@vuepress/theme-default',
     plugins: [
         [
             require("../../../../src/index"),
             {
                 componentsDir: path.join(__dirname, '../../../components'),
-                'globalIndexComponentTemplate': 'alsdjaskldjasldkj',
-                // sideBarName: 'boulbi'
                 debug: true,
             }
         ]
@@ -50,5 +49,4 @@ module.exports = {
             { text: 'Components', link: '/components/' },
         ]
     }
-    
 }

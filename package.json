@@ -10,7 +10,9 @@
     "eslint:fix": "npm run eslint -- --fix ./src",
     "commit": "git-cz",
     "release": "standard-version -i docs/CHANGELOG.md -a true",
-    "fix": "npm run release -- --release-as patch"
+    "fix": "npm run release -- --release-as patch",
+    "dev": "chokidar --initial \"./src/**/*.js\" -c \"cd ./examples/basic/ && npm run docs:dev\"",
+    "dev:install": "npm ci && cd ./examples/basic && npm ci"
   },
   "files": [
     "src",
@@ -33,6 +35,7 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",
+    "chokidar-cli": "^1.2.2",
     "commitizen": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.15.1",
