@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.8](https://github.com/f3ltron/vuepress-component-docgen/compare/v0.9.4...v0.9.8) (2019-05-09)
+
+
+### Bug Fixes
+
+* **package.json:** dependencies missing ([3d77ac7](https://github.com/f3ltron/vuepress-component-docgen/commit/3d77ac7))
+* **sidebar:** correcting the sidebar path ([b99d047](https://github.com/f3ltron/vuepress-component-docgen/commit/b99d047))
+* **sidebar:** fix when sidebar doesnt exist ([f407d45](https://github.com/f3ltron/vuepress-component-docgen/commit/f407d45))
+
+
+
 ## [0.9.7](https://github.com/f3ltron/vuepress-component-docgen/compare/v0.9.6...v0.9.7) (2019-03-13)
 
 
