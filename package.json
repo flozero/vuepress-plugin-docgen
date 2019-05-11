@@ -8,6 +8,7 @@
     "test": "mocha --recursive --exclude node_modules --exclude src",
     "eslint": "eslint",
     "eslint:fix": "npm run eslint -- --fix ./src",
+    "prettier": "prettier --write **/*.js",
     "commit": "git-cz",
     "release": "standard-version -i docs/CHANGELOG.md -a true",
     "fix": "npm run release -- --release-as patch",
@@ -49,6 +50,7 @@
     "prettier": "^1.15.2",
     "remark": "^10.0.1",
     "standard-version": "^5.0.1",
+    "unist-util-visit": "^1.4.0",
     "vuepress": "^1.0.0-alpha.47"
   },
   "husky": {
