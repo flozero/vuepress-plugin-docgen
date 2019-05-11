@@ -13,7 +13,7 @@
     "release": "standard-version -i docs/CHANGELOG.md -a true",
     "fix": "npm run release -- --release-as patch",
     "after:release": "git add -A && git commit -m 'just add docs changed'",
-    "dev": "chokidar --initial \"./src/**/*.js\" -c \"cd ./examples/basic/ && npm run docs:dev\"",
+    "dev": "chokidar --initial \"./src/**/*.js\" -c \"cd ./examples/basic/ && npm run docs:dev  -- --no-clear-screen\"",
     "dev:install": "npm ci && cd ./examples/basic && npm ci"
   },
   "files": [
