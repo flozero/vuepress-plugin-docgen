@@ -5,6 +5,7 @@ module.exports = {
     description: 'Just playing around',
     extend: '@vuepress/theme-default',
     plugins: [
+        ['live'],
         [
             require('../../../../src/index'),
             {

@@ -12,39 +12,39 @@
  * @since Version 1.0.1
  */
 export default {
-  name: "examples",
-  methods: {
-    /**
-     * Sets the order
-     *
-     * @public
-     * @version 1.0.5
-     * @since Version 1.0.1
-     * @param {string} key Key to order
-     * @returns {string} Test
-     */
-    apple() {},
-    /**
-     * Sets the order
-     *
-     * @public
-     * @version 1.0.5
-     * @since Version 1.0.1
-     * @param {string} key Key to order
-     * @returns {string} Test
-     */
-    apple1() {}
-    /**
-     * Sets the order
-     *
-     * @public
-     * @version 1.0.5
-     * @since Version 1.0.1
-     * @param {string} key Key to order
-     * @returns {string} Test
-     */
-  }
-};
+    name: 'examples',
+    methods: {
+        /**
+         * Sets the order
+         *
+         * @public
+         * @version 1.0.5
+         * @since Version 1.0.1
+         * @param {string} key Key to order
+         * @returns {string} Test
+         */
+        apple() {},
+        /**
+         * Sets the order
+         *
+         * @public
+         * @version 1.0.5
+         * @since Version 1.0.1
+         * @param {string} key Key to order
+         * @returns {string} Test
+         */
+        apple1() {},
+        /**
+         * Sets the order
+         *
+         * @public
+         * @version 1.0.5
+         * @since Version 1.0.1
+         * @param {string} key Key to order
+         * @returns {string} Test
+         */
+    },
+}
 </script> 
 
 <docs>

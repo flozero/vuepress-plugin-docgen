@@ -11,8 +11,7 @@ const markdown = fs.readFileSync(
 )
 
 describe('wrapExampleInVueLive', function() {
-    it.only('should return a wrapped version of the code', function() {
-        console.log(wrapExampleInVueLive(markdown))
-        expect(wrapExampleInVueLive(markdown)).to.contain('<vue-live')
+    it('should return a wrapped version of the code', function() {
+        expect(wrapExampleInVueLive(markdown)).to.contain('```jsx live')
     })
 })

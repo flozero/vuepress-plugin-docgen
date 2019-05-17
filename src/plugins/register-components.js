@@ -1,5 +1,4 @@
 module.exports.registerPlugins = finalContext => [
-    ['live'],
     [
         '@vuepress/register-components',
         {

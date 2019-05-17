@@ -14,9 +14,7 @@ module.exports = markdown => {
     function processCode() {
         return ast => {
             visit(ast, 'code', node => {
-                node.type = 'html'
                 node.lang += ' live'
-                node.value = `<vue-live code="${htmlEscape(node.value)}"/>`
             })
         }
     }
