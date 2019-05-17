@@ -12,8 +12,6 @@ const chainWebpack = require('./utils/webpack')
 
 const buildSideBar = require('./builders/sidebar')
 
-const exampleEditorEnhancer = require('./builders/exampleEditor')
-
 const logger = require('./utils/logger')
 
 module.exports = (givenOpts = {}) => {
@@ -31,7 +29,7 @@ module.exports = (givenOpts = {}) => {
         name: NAME,
         plugins: registerPlugins(globalContext),
         chainWebpack: chainWebpack,
-        enhanceAppFiles: [buildSideBar(globalContext), exampleEditorEnhancer()],
+        enhanceAppFiles: [buildSideBar(globalContext)],
         additionalPages: buildComponentsPages(globalContext),
     }
 }

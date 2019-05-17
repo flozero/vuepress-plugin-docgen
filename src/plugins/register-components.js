@@ -1,8 +1,9 @@
 module.exports.registerPlugins = finalContext => [
-  [
-    '@vuepress/register-components',
-    {
-      componentsDir: finalContext.componentsPath,
-    },
-  ],
-];
+    ['live'],
+    [
+        '@vuepress/register-components',
+        {
+            componentsDir: finalContext.componentsPath,
+        },
+    ],
+]

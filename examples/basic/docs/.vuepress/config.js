@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
     title: 'Hello VuePress',
@@ -6,12 +6,11 @@ module.exports = {
     extend: '@vuepress/theme-default',
     plugins: [
         [
-            require("../../../../src/index"),
+            require('../../../../src/index'),
             {
                 componentsDir: path.join(__dirname, '../../../components'),
-                debug: true,
-            }
-        ]
+            },
+        ],
     ],
     themeConfig: {
         sidebar: {
@@ -19,10 +18,7 @@ module.exports = {
                 {
                     title: '',
                     collapsable: false,
-                    children: [
-                        '',
-                        'started'
-                    ]
+                    children: ['', 'started'],
                 },
                 {
                     title: 'one',
@@ -31,7 +27,7 @@ module.exports = {
                         // ['/bar/', 'one'],
                         'bar/',
                         // '/bar/two.md'
-                    ]
+                    ],
                 },
                 {
                     title: 'bar title',
@@ -40,13 +36,13 @@ module.exports = {
                         ['foo/', 'three'],
                         // '/foo/three',
                         // '/foo/four'
-                    ]
-                }
-            ]
+                    ],
+                },
+            ],
         },
         nav: [
             { text: 'Home', link: '/' },
             { text: 'Components', link: '/components/' },
-        ]
-    }
+        ],
+    },
 }
