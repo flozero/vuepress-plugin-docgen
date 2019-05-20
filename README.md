@@ -15,8 +15,9 @@
 <!-- ⛔️ AUTO-GENERATED-CONTENT:START (CONTRIBUTORS) -->
 | **Commits** | **Contributor** |  
 | --- | --- |  
-| 53 | [f3ltron](https://github.com/f3ltron) |  
+| 54 | [f3ltron](https://github.com/f3ltron) |  
 | 22 | [dacsang97](https://github.com/dacsang97) |  
+| 3  | [elevatebart](https://github.com/elevatebart) |  
 
 <!-- ⛔️ AUTO-GENERATED-CONTENT:END -->
 
