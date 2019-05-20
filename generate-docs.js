@@ -1,4 +1,3 @@
-const simpleGit = require('simple-git')()
 const path = require('path')
 const markdownMagic = require('markdown-magic')
 
@@ -19,5 +18,3 @@ const markdownPath1 = path.join(__dirname, 'README.md')
 const markdownPath2 = path.join(__dirname, './docs/readme.md')
 markdownMagic(markdownPath1, config1)
 markdownMagic(markdownPath2, config2)
-
-simpleGit.add([markdownPath1, markdownPath2])
