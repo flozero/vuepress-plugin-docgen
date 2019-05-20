@@ -13,8 +13,8 @@
     "release": "standard-version -i docs/CHANGELOG.md -a true",
     "fix": "npm run release -- --release-as patch",
     "after:release": "git add -A && git commit -m 'just add docs changed'",
-    "dev": "cd ./examples/basic/ && npm run docs:dev  -- --no-clear-screen",
-    "dev:install": "npm ci && cd ./examples/basic && npm ci"
+    "dev": "cd ./examples/basic/ && npm run docs:dev -- --no-clear-screen",
+    "bootstrap": "npm link && cd ./examples/basic && npm link vuepress-component-docgen"
   },
   "files": [
     "src",
@@ -50,9 +50,9 @@
     "prettier": "^1.15.2",
     "remark": "^10.0.1",
     "standard-version": "^5.0.1",
-    "unist-util-visit": "^1.4.0",
-    "vuepress": "^1.0.0-alpha.47",
-    "vuepress-plugin-live": "0.0.6"
+    "vue": "2.6.10",
+    "vuepress": "^1.0.0-alpha.48",
+    "vuepress-plugin-live": "^0.0.7"
   },
   "husky": {
     "hooks": {

@@ -15,7 +15,8 @@
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
     "vue-template-compiler": "^2.6.10",
-    "vuepress": "^1.0.0-alpha.47"
+    "vuepress": "^1.0.0-alpha.48",
+    "vuepress-component-docgen": "*"
   },
   "postcss": {
     "plugins": {
