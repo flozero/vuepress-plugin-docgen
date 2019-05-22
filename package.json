@@ -26,8 +26,7 @@
   },
   "keywords": [
     "vuepress",
-    "vuepress-plugin-component-docgen",
-    "vuepress-component-docgen",
+    "vuepress-plugin-docgen",
     "vuejs",
     "documentation",
     "docgen"
