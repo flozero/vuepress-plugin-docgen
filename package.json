@@ -48,7 +48,6 @@
     "mocha": "^6.1.4",
     "prettier": "^1.15.2",
     "remark": "^10.0.1",
-    "rimraf": "^2.6.3",
     "simple-git": "^1.113.0",
     "standard-version": "^5.0.1",
     "vue": "2.6.10",
@@ -57,7 +56,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test && node generate-docs.js"
+      "pre-commit": "npm run test && node generate-docs.js && git add README.md docs/readme.md"
     }
   },
   "dependencies": {
