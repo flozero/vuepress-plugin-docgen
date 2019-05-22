@@ -1,6 +1,6 @@
 ---
 home: true
-tagline: Vuepress-component-docgen
+tagline: Vuepress-plugin-docgen
 actionText: Get Started →
 actionLink: /guide/
 features:

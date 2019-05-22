@@ -3,7 +3,7 @@
   "version": "0.9.8",
   "description": "Vuepress plugin for document your component",
   "scripts": {
-    "docs": "vuepress dev docs -- --no-clear-screen",
+    "dev": "vuepress dev docs -- --no-clear-screen",
     "docs:build": "vuepress build docs",
     "test": "mocha --recursive --exclude node_modules --exclude src",
     "eslint": "eslint",

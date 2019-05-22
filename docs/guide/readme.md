@@ -1,15 +1,15 @@
 # Installation
 
-First Thank you to use vuepress-component-docgen
+First Thank you to use vuepress-plugin-docgen
 
 npm installation:
 
 ```bash
-    npm i vuepress-component-docgen --save-dev
+    npm i -D vuepress-plugin-docgen --save-dev
 ```
 
 yarn installation:
 
 ```bash
-    yarn add -D vuepress-component-docgen
+    yarn add -D vuepress-plugin-docgen
 ```

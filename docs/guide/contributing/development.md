@@ -1,11 +1,11 @@
 # Local Development
 
-Fork the [project](https://github.com/f3ltron/vuepress-component-docgen)
+Fork the [project](https://github.com/f3ltron/vuepress-plugin-docgen)
 
 Clone it immediately or with your fork:
 
 ```bash
-git clone https://github.com/f3ltron/vuepress-component-docgen
+git clone https://github.com/f3ltron/vuepress-plugin-docgen
 ```
 
 As we actually dev with native nodejs we don't need any transpiler. 

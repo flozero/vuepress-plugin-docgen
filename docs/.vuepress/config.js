@@ -10,7 +10,9 @@ module.exports = {
       'docgen',
       {
         componentsDir: path.join(__dirname, "../../components"),
-        debug: true
+        debug: true,
+        sideBarName: 'Components',// this the default value
+        globalName: 'Globals' // this is for naming the root path of your components
       }
     ]
   ],
@@ -29,7 +31,8 @@ module.exports = {
           collapsable: false, // optional, defaults to true
           children: [
             ['/guide/', 'installation'],
-            '/guide/configuration'
+            '/guide/configuration',
+            ['/guide/more', 'More in depth']
           ]
         },
         {
@@ -37,9 +40,9 @@ module.exports = {
           collapsable: false, // optional, defaults to true
           children: [
             ['/guide/contributing/', 'Thank You'],
-            ['/guide/contributing/development.md', ['local Developemt']],
-            ['/guide/contributing/commit', ['How to commit']],
-            ['/guide/contributing/pr', ['Send your work']]
+            ['/guide/contributing/development.md', 'local Developemt'],
+            ['/guide/contributing/commit', 'How to commit'],
+            ['/guide/contributing/pr', 'Send your work'],
           ]
         }
       ],

@@ -21,6 +21,8 @@ const buildComponentPage = (absolutePath, parentPath, finalContext) => {
     let preview = ''
 
     const componentInfo = parse(absolutePath)
+
+    // this is markdown here
     const componentPreviewCompiled = getCompiledTemplateWithHbs(
         componentInfo,
         finalContext.options.componentsDocsTemplate,
@@ -39,11 +41,15 @@ const buildComponentPage = (absolutePath, parentPath, finalContext) => {
     const docsBlock = vueParser.getCustomBlock('docs')
 
     if (docsBlock && docsBlock.content) {
+        // TODO: need understand why the second live here
+        //```vue live live
+        //  <examples />
+        // ```
         const docWithWrappedExamples = wrapExampleInVueLive(docsBlock.content)
         preview = finalContext.options.docsBlockTemplate(docWithWrappedExamples)
     }
 
-    let content = componentPreviewCompiled + preview
+    const content = componentPreviewCompiled + preview
 
     return {
         path: `${parentPath + componentName}.html`,
