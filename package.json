@@ -1,9 +1,9 @@
 {
-  "name": "vuepress-component-docgen",
+  "name": "vuepress-plugin-docgen",
   "version": "0.9.8",
   "description": "Vuepress plugin for document your component",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
+    "docs": "vuepress dev docs -- --no-clear-screen",
     "docs:build": "vuepress build docs",
     "test": "mocha --recursive --exclude node_modules --exclude src",
     "eslint": "eslint",
@@ -13,8 +13,7 @@
     "release": "standard-version -i docs/CHANGELOG.md -a true",
     "fix": "npm run release -- --release-as patch",
     "after:release": "git add -A && git commit -m 'just add docs changed'",
-    "dev": "cd ./examples/basic/ && npm run docs:dev -- --no-clear-screen",
-    "bootstrap": "npm link && cd ./examples/basic && npm link vuepress-component-docgen"
+    "bootstrap": "npm link && npm link vuepress-plugin-docgen"
   },
   "files": [
     "src",
@@ -49,6 +48,7 @@
     "mocha": "^6.1.4",
     "prettier": "^1.15.2",
     "remark": "^10.0.1",
+    "rimraf": "^2.6.3",
     "simple-git": "^1.113.0",
     "standard-version": "^5.0.1",
     "vue": "2.6.10",

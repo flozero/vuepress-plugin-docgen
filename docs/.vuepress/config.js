@@ -1,12 +1,26 @@
+const path = require('path');
+
 module.exports = {
   title: 'VuePress Docgen',
   description: 'Preview your components',
+  plugins: [
+    ["live"],
+    [
+      // you can use here 'docgen'
+      'docgen',
+      {
+        componentsDir: path.join(__dirname, "../../components"),
+        debug: true
+      }
+    ]
+  ],
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
+      { text: "Components Examples", link: "/components/" },
       { text: 'Release', link: '/CHANGELOG.md' },
-      { text: 'Github', link: 'https://github.com/f3ltron/vuepress-component-docgen' },
+      { text: 'Github', link: 'https://github.com/f3ltron/vuepress-plugin-docgen' }
     ],
     sidebar: {
       '/guide/':  [

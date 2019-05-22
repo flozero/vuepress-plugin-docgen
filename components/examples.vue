@@ -50,7 +50,7 @@ export default {
 <docs>
 # Examples Documentation
 
-```jsx
+```vue live
 <examples />
 ```
 
