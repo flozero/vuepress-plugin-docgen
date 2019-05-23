@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-docgen",
-  "version": "0.9.8",
+  "version": "0.10.0",
   "description": "Vuepress plugin for document your component",
   "scripts": {
     "dev": "vuepress dev docs -- --no-clear-screen",

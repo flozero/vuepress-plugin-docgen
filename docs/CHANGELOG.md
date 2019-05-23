@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [0.10.0](https://github.com/f3ltron/vuepress-component-docgen/compare/v0.9.8...v0.10.0) (2019-05-23)
+
+
+### Bug Fixes
+
+* remove dependency on vue-live ([4587820](https://github.com/f3ltron/vuepress-component-docgen/commit/4587820))
+* scaffolding is now one install only ([cac2478](https://github.com/f3ltron/vuepress-component-docgen/commit/cac2478))
+* update #contribs ([8237798](https://github.com/f3ltron/vuepress-component-docgen/commit/8237798))
+
+
+### Features
+
+* **vue-live:**  add an example editor with live reload ([0d09c10](https://github.com/f3ltron/vuepress-component-docgen/commit/0d09c10))
+
+
+
 ## [0.9.8](https://github.com/f3ltron/vuepress-component-docgen/compare/v0.9.4...v0.9.8) (2019-05-09)
 
 

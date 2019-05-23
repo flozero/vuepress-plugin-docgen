@@ -6,7 +6,7 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Build Status](https://travis-ci.com/f3ltron/vuepress-component-docgen.svg?branch=master)](https://travis-ci.com/f3ltron/vuepress-component-docgen)
 <!-- AUTO-GENERATED-CONTENT:START (VERSIONBADGE) -->
-[![npm](https://img.shields.io/badge/npm-v0.9.8-green.svg)](https://www.npmjs.com/package/vuepress-plugin-docgen)
+[![npm](https://img.shields.io/badge/npm-v0.10.0-green.svg)](https://www.npmjs.com/package/vuepress-plugin-docgen)
 <!-- AUTO-GENERATED-CONTENT:END -->
 ## documentation
 
