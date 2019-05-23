@@ -6,6 +6,8 @@ module.exports.hasKey = (obj, key) => Object.prototype.hasOwnProperty.call(
   key,
 );
 
+// TODO: improvment can be done here
+// using globs to find files
 module.exports.buildGlobalContext = (finalOpts) => {
   const ret = {
     children: [],

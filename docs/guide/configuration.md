@@ -8,9 +8,10 @@ Examples: minimal configuration needed
 
 ```js
 plugins: [
-  [ require('vuepress-component-docgen'),
+  // as we respect the naming convention vuepress-plugin-docgen you can juste docgen as name
+  [ 'docgen',
     {
-      componentsDir: path.join(__dirname, '../../../components')
+      componentsDir: path.join(__dirname, '../../components')
     }
   ]
 ]
@@ -20,7 +21,7 @@ All configurable options:
 
 ```js
 componentsDir: {
-  type: 'string', // absolute path
+  type: 'string', 
   required: true,
 },
 debug: {
@@ -29,23 +30,11 @@ debug: {
 },
 sideBarName: {
   type: 'string',
-  default: 'components',
+  default: 'components', 
 },
 globalName: {
   type: 'string',
-  default: 'Globals'
-},
-globalIndexComponentTemplate: {
-  type: 'string',
-  default: globalIndexComponentTemplate
-},
-docsBlockTemplate: {
-  type: 'function',
-  default: docsBlockTemplate
-},
-componentsDocsTemplate: {
-  type: 'string',
-  default: topTemplate
+  default: 'Globals' 
 }
 ```
 
@@ -53,7 +42,7 @@ componentsDocsTemplate: {
 
 Typically the path of your components you want to document. It should be an absolute path
 
-Examples: Use path.joi and __dirname 
+Examples: Use path.join and __dirname 
 
 ```js
   path.join(__dirname, '../../../components')
@@ -63,18 +52,19 @@ Examples: Use path.joi and __dirname
 
 ::: danger
   If you activate it you should know it will process.exit(0) before build is finish
-  Because of windows terminal and linux clear buffer
 :::
 
 You will have informations about: 
 
 - the final options parsed
 - the globalContext used through the plugin
-- More incoming... 
+- If there is errors you will have detail informations
 
-With that you are ok to debug
+Really helpfull when you want to develop
 
 ## sideBarName
+
+Usefull when you dont want to use /components/ for sidebar path
 
 To understand this I will show what your sidebar config should look like
 after the plugins build
@@ -117,7 +107,7 @@ If it's not showing like this. It will send you a warning in console.
   What's going on behind? 
 
   The plugin will create an object representing your components sidebar and will
-  inject it inside the enhanceAppFiles with the buildSideBar method.
+  inject it inside the enhanceAppFiles.
 :::
 
 ## globalName
@@ -127,35 +117,6 @@ are considered as globalComponents
 
 GlobalName is the section name where all your components at rootDir will be displayed
 
-## globalIndexComponentTemplate
-
-this template is the global index page you will have when someone navigate into it.
-
-## docsBlockTemplate
-
-docsBlockTemplate is the preview of the <docs></docs>
-
-If you want to override it you pass a function like this
-
-```js
-module.exports = (docsBlock) => `
-## Code\n\n\`\`\`html\n${docsBlock.content.replace(
-/(\r\n|\n|\r)/gm,
-'',
-)}\n\`\`\`\n\n## Preview\n${docsBlock.content}
-`
-```
-
-Your function will receive the docsBlock data extracted by the VueParser.
-
-For more informations about it [Check here](https://www.npmjs.com/package/@vue/component-compiler-utils)
-
-## componentsDocsTemplate
-
-::: warning
-  For the templating we are using handlebar [Check the doc](https://handlebarsjs.com/)
-:::
-
-You will have all informations about your component available with [vue-docgen-api](https://www.npmjs.com/package/vue-docgen-api). Refer to it or check the examples folders.
+[vue-docgen-api](https://www.npmjs.com/package/vue-docgen-api)
 
 

@@ -1,19 +1,19 @@
 {
-  "name": "vuepress-component-docgen",
-  "version": "0.9.8",
+  "name": "vuepress-plugin-docgen",
+  "version": "0.10.0",
   "description": "Vuepress plugin for document your component",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
+    "dev": "vuepress dev docs -- --no-clear-screen",
     "docs:build": "vuepress build docs",
     "test": "mocha --recursive --exclude node_modules --exclude src",
     "eslint": "eslint",
     "eslint:fix": "npm run eslint -- --fix ./src",
+    "prettier": "prettier --write **/*.js",
     "commit": "git-cz",
     "release": "standard-version -i docs/CHANGELOG.md -a true",
     "fix": "npm run release -- --release-as patch",
     "after:release": "git add -A && git commit -m 'just add docs changed'",
-    "dev": "cd ./examples/basic/ && npm run docs:dev -- --no-clear-screen",
-    "bootstrap": "npm link && cd ./examples/basic && npm link vuepress-component-docgen"
+    "bootstrap": "npm link && npm link vuepress-plugin-docgen"
   },
   "files": [
     "src",
@@ -26,8 +26,7 @@
   },
   "keywords": [
     "vuepress",
-    "vuepress-plugin-component-docgen",
-    "vuepress-component-docgen",
+    "vuepress-plugin-docgen",
     "vuejs",
     "documentation",
     "docgen"
@@ -47,13 +46,16 @@
     "markdown-magic-version-badge": "^1.1.1",
     "mocha": "^6.1.4",
     "prettier": "^1.15.2",
+    "remark": "^10.0.1",
+    "simple-git": "^1.113.0",
     "standard-version": "^5.0.1",
     "vue": "2.6.10",
-    "vuepress": "^1.0.0-alpha.48"
+    "vuepress": "^1.0.0-alpha.48",
+    "vuepress-plugin-live": "^0.0.7"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test && node generate-docs.js"
+      "pre-commit": "npm run test && node generate-docs.js && git add README.md docs/readme.md"
     }
   },
   "dependencies": {
@@ -61,7 +63,7 @@
     "consola": "^2.5.6",
     "handlebars": "^4.1.2",
     "node-dir": "^0.1.17",
-    "vue-docgen-api": "^2.6.12",
+    "vue-docgen-api": "^3.13.4",
     "vue-template-compiler": "^2.6.10"
   },
   "config": {

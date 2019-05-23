@@ -1,35 +1,35 @@
-const { NAME } = require('./utils/constants');
+const { NAME } = require('./utils/constants')
 
-const { extractOptions } = require('./extractors/options');
+const { extractOptions } = require('./extractors/options')
 
-const { buildGlobalContext } = require('./builders/context');
+const { buildGlobalContext } = require('./builders/context')
 
-const { registerPlugins } = require('./plugins/register-components');
+const { registerPlugins } = require('./plugins/register-components')
 
-const buildComponentsPages = require('./builders/additionnalPages/buildComponentsPages');
+const buildComponentsPages = require('./builders/additionnalPages/buildComponentsPages')
 
-const docsBlockConfig = require('./utils/webpack');
+const chainWebpack = require('./utils/webpack')
 
-const buildSideBar = require('./builders/sidebar');
+const buildSideBar = require('./builders/sidebar')
 
-const logger = require('./utils/logger');
+const logger = require('./utils/logger')
 
 module.exports = (givenOpts = {}) => {
-  if (!givenOpts.debug) logger.pause();
+    if (!givenOpts.debug) logger.pause()
 
-  const finalOpts = extractOptions(givenOpts);
+    const finalOpts = extractOptions(givenOpts)
 
-  logger.log('finalOpts: ', finalOpts);
+    logger.log('finalOpts: ', finalOpts)
 
-  const globalContext = buildGlobalContext(finalOpts);
+    const globalContext = buildGlobalContext(finalOpts)
 
-  logger.log(globalContext);
+    logger.log(globalContext)
 
-  return {
-    name: NAME,
-    plugins: registerPlugins(globalContext),
-    chainWebpack: docsBlockConfig,
-    enhanceAppFiles: buildSideBar(globalContext),
-    additionalPages: buildComponentsPages(globalContext),
-  };
-};
+    return {
+        name: NAME,
+        plugins: registerPlugins(globalContext),
+        chainWebpack: chainWebpack,
+        enhanceAppFiles: [buildSideBar(globalContext)],
+        additionalPages: buildComponentsPages(globalContext),
+    }
+}
