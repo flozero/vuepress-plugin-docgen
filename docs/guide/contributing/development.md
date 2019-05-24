@@ -14,8 +14,6 @@ To test the code, open a terminal and run
 ```bash
 npm ci # to avoid chnging the package-lock
 
-npm run bootstrap # to make the current package available in the example
-
 npm run dev # launches vuepress in dev mode with the current plugin loaded
 ```
 
