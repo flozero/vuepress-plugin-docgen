@@ -20,7 +20,7 @@
   ],
   "main": "src/index.js",
   "repository": {
-    "url": "f3ltron/vuepress-component-docgen",
+    "url": "f3ltron/vuepress-plugin-docgen",
     "type": "git"
   },
   "keywords": [
