@@ -15,13 +15,17 @@
     "after:release": "git add -A && git commit -m 'just add docs changed'",
     "bootstrap": "npm link && npm link vuepress-plugin-docgen"
   },
+  "bugs": {
+    "url": "https://github.com/f3ltron/vuepress-plugin-docgen/issues"
+  },
+  "homepage": "https://f3ltron.github.io/vuepress-plugin-docgen/",
   "files": [
     "src",
     "README.md"
   ],
   "main": "src/index.js",
   "repository": {
-    "url": "f3ltron/vuepress-component-docgen",
+    "url": "git+https://github.com/f3ltron/vuepress-plugin-docgen.git",
     "type": "git"
   },
   "keywords": [
