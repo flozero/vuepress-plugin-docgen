@@ -9,15 +9,8 @@
     "eslint": "eslint",
     "eslint:fix": "yarn run eslint -- --fix ./src",
     "prettier": "prettier --write **/*.js",
-    "commit": "git-cz",
-    "release": "standard-version -i docs/CHANGELOG.md -a true",
-    "fix": "yarn run release -- --release-as patch",
-    "after:release": "git add -A && git commit -m 'just add docs changed'"
+    "commit": "git-cz"
   },
-  "files": [
-    "src",
-    "README.md"
-  ],
   "main": "src/index.js",
   "repository": {
     "url": "f3ltron/vuepress-plugin-docgen",
@@ -42,7 +35,6 @@
     "husky": "^1.2.0",
     "mocha": "^6.1.4",
     "prettier": "^1.15.2",
-    "standard-version": "^5.0.1",
     "vue": "2.6.10",
     "vuepress": "^1.0.0-alpha.48",
     "vuepress-plugin-live": "^0.0.7"
