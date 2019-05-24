@@ -14,7 +14,7 @@ To test the code, open a terminal and run
 ```bash
 npm ci # to avoid chnging the package-lock
 
-npm run dev # launches vuepress in dev mode with the current plugin loaded
+npm run docs # launches vuepress in dev mode with the current plugin loaded
 ```
 
 And that's all ! You have anything to develop
