@@ -12,9 +12,9 @@ As we actually dev with native nodejs we don't need any transpiler.
 To test the code, open a terminal and run
 
 ```bash
-npm ci # to avoid chnging the package-lock
+yarn
 
-npm run docs # launches vuepress in dev mode with the current plugin loaded
+yarn run docs # launches vuepress in dev mode with the current plugin loaded
 ```
 
 And that's all ! You have anything to develop
