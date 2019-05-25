@@ -81,8 +81,8 @@ It will read the component file and save the name of the component
 
 Send the string and the name to the **VueParser**
 
-From this we extract the docsBlock from the component if there is
+From this we extract the docsBlock from the component if there is and put it as preview.
 
-If there is docs we send to remark the block and extract if there is some ``` live that can be use with vue live
+You should consider using something [vuepress-plugin-live](https://vuepress-live.surge.sh/). 
 
-TODO: finish this last part. The markdown generation
+Something really cool that will give you the power of real time editing you component ! :smile:

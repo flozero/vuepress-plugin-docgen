@@ -3,25 +3,17 @@
   "version": "0.10.0",
   "description": "Vuepress plugin for document your component",
   "scripts": {
-    "dev": "vuepress dev docs -- --no-clear-screen",
+    "docs": "vuepress dev docs --no-clear-screen",
     "docs:build": "vuepress build docs",
     "test": "mocha --recursive --exclude node_modules --exclude src",
     "eslint": "eslint",
-    "eslint:fix": "npm run eslint -- --fix ./src",
+    "eslint:fix": "yarn run eslint -- --fix ./src",
     "prettier": "prettier --write **/*.js",
-    "commit": "git-cz",
-    "release": "standard-version -i docs/CHANGELOG.md -a true",
-    "fix": "npm run release -- --release-as patch",
-    "after:release": "git add -A && git commit -m 'just add docs changed'",
-    "bootstrap": "npm link && npm link vuepress-plugin-docgen"
+    "commit": "git-cz"
   },
-  "files": [
-    "src",
-    "README.md"
-  ],
   "main": "src/index.js",
   "repository": {
-    "url": "f3ltron/vuepress-component-docgen",
+    "url": "f3ltron/vuepress-plugin-docgen",
     "type": "git"
   },
   "keywords": [
@@ -41,21 +33,15 @@
     "eslint": "^5.15.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "husky": "^1.2.0",
-    "markdown-magic": "^0.1.25",
-    "markdown-magic-github-contributors": "0.0.3",
-    "markdown-magic-version-badge": "^1.1.1",
     "mocha": "^6.1.4",
     "prettier": "^1.15.2",
-    "remark": "^10.0.1",
-    "simple-git": "^1.113.0",
-    "standard-version": "^5.0.1",
     "vue": "2.6.10",
     "vuepress": "^1.0.0-alpha.48",
     "vuepress-plugin-live": "^0.0.7"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test && node generate-docs.js && git add README.md docs/readme.md"
+      "pre-commit": "yarn run test"
     }
   },
   "dependencies": {
