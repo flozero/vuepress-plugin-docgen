@@ -15,37 +15,49 @@ const buildIndexPageComponent = finalContext => {
     }
 }
 
-const buildComponentPage = (absolutePath, parentPath, finalContext) => {
-    let preview = ''
+function CompileTemplate(data = undefined, template) {
+    if (typeof data === undefined) return '';
+    return getCompiledTemplateWithHbs(data, template);
+}
 
-    const componentInfo = parse(absolutePath)
 
-    const componentPreviewCompiled = getCompiledTemplateWithHbs(
-        componentInfo,
-        finalContext.options.componentsDocsTemplate,
-    )
+const buildTemplates = (absolutePath, docsTemplate) => {
+    const { 
+        props, 
+        description, 
+        displayName,
+        tags,
+        events,
+        methods,
+        slots
+    } = parse(absolutePath)
 
-    const readedComponent = fs.readFileSync(absolutePath, { encoding: 'utf-8' })
+    return `
+${CompileTemplate({ description, displayName}, '## Bonjour')}
+${CompileTemplate({tags}, '## Bonjour')}
+${CompileTemplate({props}, '## Bonjour')}
+${CompileTemplate({slots}, '## Bonjour')}
+${CompileTemplate({events}, '## Bonjour')}
+${CompileTemplate({methods}, '## Bonjour')}
+${'## Preview \n'+ docsTemplate}
+`
+}
 
-    let componentName = getFileNameFromAbsolutePath(absolutePath)
-    componentName = dropVueExtension(componentName)
+const buildComponentPage = (absolutePath, parentPath) => {
 
-    const vueParser = new VueParser({
-        source: readedComponent,
+    const ComponentToStr = fs.readFileSync(absolutePath, { encoding: 'utf-8' })
+    const componentName = dropVueExtension(getFileNameFromAbsolutePath(absolutePath))
+
+    const ComponentInstance = new VueParser({
+        source: ComponentToStr,
         fileName: componentName,
     })
 
-    const docsBlock = vueParser.getCustomBlock('docs')
-
-    if (docsBlock && docsBlock.content) {
-        preview = '## Preview \n' + docsBlock.content
-    }
-
-    const content = componentPreviewCompiled + preview
+    const preview = buildTemplates(absolutePath, ComponentInstance.getCustomBlock('docs').content)
 
     return {
         path: `${parentPath + componentName}.html`,
-        content,
+        content: preview
     }
 }
 
@@ -61,8 +73,7 @@ module.exports = finalContext => {
                 componentsPages.push(
                     buildComponentPage(
                         `${componentsDir}/${componentRelativePath}`,
-                        `/${prefix}/`,
-                        finalContext,
+                        `/${prefix}/`
                     ),
                 )
             })
@@ -71,8 +82,7 @@ module.exports = finalContext => {
                 componentsPages.push(
                     buildComponentPage(
                         `${componentsDir}/${k}/${componentRelativePath}`,
-                        `/${prefix}/${k}/`,
-                        finalContext,
+                        `/${prefix}/${k}/`
                     ),
                 )
             })
