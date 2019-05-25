@@ -10,7 +10,7 @@
 <!-- AUTO-GENERATED-CONTENT:END -->
 ## documentation
 
-[click here](https://f3ltron.github.io/vuepress-component-docgen/)
+[click here](https://f3ltron.github.io/vuepress-plugin-docgen/)
 
 <!-- ⛔️ AUTO-GENERATED-CONTENT:START (CONTRIBUTORS) -->
 | **Commits** | **Contributor** |  
