@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button style="padding: 22px;margin: 22px auto;border-radius: 11px;">Hello</button>
+    <button style="padding: 22px;margin: 22px auto;border-radius: 11px;" :style="{backgroundColor: color}">Hello</button>
   </div>
 </template>
  
@@ -13,6 +13,12 @@
  */
 export default {
     name: 'examples',
+    props: {
+      color: {
+        type: String,
+        default: 'blue'
+      }
+    },
     methods: {
         /**
          * Sets the order
@@ -48,10 +54,11 @@ export default {
 </script> 
 
 <docs>
-# Examples Documentation
+
+### Examples Documentation using vue live !!
 
 ```vue live
-<examples />
+<examples :color="'blue'" />
 ```
 
 </docs>

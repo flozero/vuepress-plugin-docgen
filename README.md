@@ -1,25 +1,30 @@
-# vuepress-component-docgen
+# vuepress-plugin-docgen
 
 > Vuepress plugin for creating a documentation site of your Vue components
 
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![Build Status](https://travis-ci.com/f3ltron/vuepress-component-docgen.svg?branch=master)](https://travis-ci.com/f3ltron/vuepress-component-docgen)
-<!-- AUTO-GENERATED-CONTENT:START (VERSIONBADGE) -->
-[![npm](https://img.shields.io/badge/npm-v0.10.0-green.svg)](https://www.npmjs.com/package/vuepress-plugin-docgen)
-<!-- AUTO-GENERATED-CONTENT:END -->
-## documentation
+[![Build Status](https://travis-ci.com/f3ltron/vuepress-plugin-docgen.svg?branch=master)](https://travis-ci.com/f3ltron/vuepress-plugin-docgen)
 
-[click here](https://f3ltron.github.io/vuepress-component-docgen/)
 
-<!-- ⛔️ AUTO-GENERATED-CONTENT:START (CONTRIBUTORS) -->
-| **Commits** | **Contributor** |  
-| --- | --- |  
-| 61 | [f3ltron](https://github.com/f3ltron) |  
-| 22 | [dacsang97](https://github.com/dacsang97) |  
-| 15 | [elevatebart](https://github.com/elevatebart) |  
+## fast installation
 
-<!-- ⛔️ AUTO-GENERATED-CONTENT:END -->
+  `yarn add -D vuepress-plugin-docgen`
+
+
+vuepress config file
+
+```jsx
+plugins: [
+  [ 'docgen',
+    {
+      componentsDir: path.join(__dirname, '../../components')
+    }
+  ]
+]
+```
+
+## documentation more infos [click here](https://f3ltron.github.io/vuepress-plugin-docgen/)
 
 ## License
 

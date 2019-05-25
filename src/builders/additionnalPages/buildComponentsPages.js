@@ -7,8 +7,6 @@ const VueParser = require('../../parser/vue')
 const { getFileNameFromAbsolutePath } = require('../../extractors/pathReader')
 const { dropVueExtension } = require('../../extractors/name')
 
-const wrapExampleInVueLive = require('../../utils/wrapExampleInVueLive')
-
 const buildIndexPageComponent = finalContext => {
     const contentTemplate = finalContext.options.globalIndexComponentTemplate
     return {
@@ -22,7 +20,6 @@ const buildComponentPage = (absolutePath, parentPath, finalContext) => {
 
     const componentInfo = parse(absolutePath)
 
-    // this is markdown here
     const componentPreviewCompiled = getCompiledTemplateWithHbs(
         componentInfo,
         finalContext.options.componentsDocsTemplate,
@@ -41,12 +38,7 @@ const buildComponentPage = (absolutePath, parentPath, finalContext) => {
     const docsBlock = vueParser.getCustomBlock('docs')
 
     if (docsBlock && docsBlock.content) {
-        // TODO: need understand why the second live here
-        //```vue live live
-        //  <examples />
-        // ```
-        const docWithWrappedExamples = wrapExampleInVueLive(docsBlock.content)
-        preview = finalContext.options.docsBlockTemplate(docWithWrappedExamples)
+        preview = '## Preview \n' + docsBlock.content
     }
 
     const content = componentPreviewCompiled + preview

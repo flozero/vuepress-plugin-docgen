@@ -7,7 +7,7 @@ module.exports = {
     ["live"],
     [
       // you can use here 'docgen'
-      'docgen',
+      require("../../src/index"),
       {
         componentsDir: path.join(__dirname, "../../components"),
         debug: true,
@@ -48,5 +48,5 @@ module.exports = {
       ],
     },
   },
-  base: "/vuepress-component-docgen/"
+  base: "/vuepress-plugin-docgen/"
 }
