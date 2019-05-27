@@ -6,14 +6,13 @@ const params = function(params) {
   | ------------- |------------- | -------------|
   `;
 
-
   Object.keys(params).forEach(i => {
   const p = params[i]
   const t = p.type && p.type.name ? p.type.name : '';
   const n = p.name ? p.name : '';
   const d = p.description ? p.description : ''
 
-    ret += `| ${n} | ${t} | ${d} |`
+    ret += `| ${n} | ${t} | ${d} |\n`
   })
 
   return ret;
@@ -49,6 +48,7 @@ const tmpl = function(methods) {
 }
 
 module.exports = function(methods) {
+  if (Object.keys(methods).length === 0) return ''
   return `
   ## Methods
   ${tmpl(methods)}

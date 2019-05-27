@@ -18,8 +18,8 @@ module.exports.buildComponent = (absolutePath, docsTemplate, finalContext) => {
   ${tags ? tmpl.tags(tags) : ''}
   ${props ? tmpl.props(props) : ''}
   ${slots ? tmpl.slots(slots) : ''}
-  ${events ? tmpl.events(events) : ''}
   ${methods ? tmpl.methods(methods) : ''}
+  ${events ? tmpl.events(events) : ''}
   ${docsTemplate ? tmpl.preview(docsTemplate) : ''}
   `
 }

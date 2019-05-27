@@ -13,7 +13,6 @@
 </template>
  
 <script>
- 
   /**
    * This is an example of creating a reusable grid component and using it with external data.
    * @version 1.0.5
@@ -21,7 +20,7 @@
    * @since Version 1.0.1
    */
   export default {
-    name: 'TestModal',
+    name: 'Test',
     props: {
  
       /**
@@ -107,9 +106,10 @@
        * @version 1.0.5
        * @since Version 1.0.1
        * @param {string} key Key to order
-       * @returns {string} Test
+       * @param {string, number} test Key to order
+       * @returns {string, number} Test
        */
-      sortBy: function (key) {
+      sortBy: function (key, test) {
         this.sortKey = key
         this.sortOrders[key] = this.sortOrders[key] * -1;
  
@@ -123,7 +123,15 @@
           demo: 'example',
         })
       },
- 
+
+      /**
+         * asdakdaldalsdadadkld.
+         * @public
+         */
+      notHiddenMethod: function(){
+        console.log("adasd")
+      },
+      
       hiddenMethod: function(){
  
       }

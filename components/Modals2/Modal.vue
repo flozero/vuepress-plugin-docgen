@@ -15,7 +15,6 @@
 <script>
  
   /**
-   * This is an example of creating a reusable grid component and using it with external data.
    * @version 1.0.5
    * @author [Rafael](https://github.com/rafaesc92)
    * @since Version 1.0.1
@@ -117,7 +116,7 @@
          * Success event.
          *
          * @event success
-         * @type {object} 
+         * @type {object, string} 
          */
         this.$emit('success', {
           demo: 'example',

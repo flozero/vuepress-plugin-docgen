@@ -1,4 +1,4 @@
-module.exports = function({displayName, description}) {
+module.exports = function({displayName = '', description = ''}) {
   return `
   # ${displayName}
 
