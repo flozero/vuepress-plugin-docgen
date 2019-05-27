@@ -1,59 +1,25 @@
-const { parse } = require('vue-docgen-api')
 const fs = require('fs')
-
-const { getCompiledTemplateWithHbs } = require('../handlebars')
 const VueParser = require('../../parser/vue')
 
 const { getFileNameFromAbsolutePath } = require('../../extractors/pathReader')
 const { dropVueExtension } = require('../../extractors/name')
+const { buildComponent, buildIndexPageComponents } = require('./compileTemplates');
 
-const buildIndexPageComponent = finalContext => {
-    const contentTemplate = finalContext.options.globalIndexComponentTemplate
-    return {
-        path: `/${finalContext.options.sideBarName}/`,
-        content: getCompiledTemplateWithHbs(finalContext, contentTemplate),
-    }
-}
-
-function CompileTemplate(data = undefined, template) {
-    if (typeof data === undefined) return '';
-    return getCompiledTemplateWithHbs(data, template);
-}
-
-
-const buildTemplates = (absolutePath, docsTemplate) => {
-    const { 
-        props, 
-        description, 
-        displayName,
-        tags,
-        events,
-        methods,
-        slots
-    } = parse(absolutePath)
-
-    return `
-${CompileTemplate({ description, displayName}, '## Bonjour')}
-${CompileTemplate({tags}, '## Bonjour')}
-${CompileTemplate({props}, '## Bonjour')}
-${CompileTemplate({slots}, '## Bonjour')}
-${CompileTemplate({events}, '## Bonjour')}
-${CompileTemplate({methods}, '## Bonjour')}
-${'## Preview \n'+ docsTemplate}
-`
-}
-
-const buildComponentPage = (absolutePath, parentPath) => {
-
+const buildComponentPage = (absolutePath, parentPath, finalContext) => {
     const ComponentToStr = fs.readFileSync(absolutePath, { encoding: 'utf-8' })
     const componentName = dropVueExtension(getFileNameFromAbsolutePath(absolutePath))
 
+    // TODO: i think we can inject some context here ?
     const ComponentInstance = new VueParser({
         source: ComponentToStr,
         fileName: componentName,
     })
 
-    const preview = buildTemplates(absolutePath, ComponentInstance.getCustomBlock('docs').content)
+    const preview = buildComponent(
+        absolutePath,
+        ComponentInstance.getCustomBlock('docs').content,
+        finalContext
+    )
 
     return {
         path: `${parentPath + componentName}.html`,
@@ -73,7 +39,8 @@ module.exports = finalContext => {
                 componentsPages.push(
                     buildComponentPage(
                         `${componentsDir}/${componentRelativePath}`,
-                        `/${prefix}/`
+                        `/${prefix}/`,
+                        finalContext
                     ),
                 )
             })
@@ -82,12 +49,13 @@ module.exports = finalContext => {
                 componentsPages.push(
                     buildComponentPage(
                         `${componentsDir}/${k}/${componentRelativePath}`,
-                        `/${prefix}/${k}/`
+                        `/${prefix}/${k}/`,
+                        finalContext
                     ),
                 )
             })
         }
     })
 
-    return [buildIndexPageComponent(finalContext), ...componentsPages]
+    return [buildIndexPageComponents(finalContext), ...componentsPages]
 }

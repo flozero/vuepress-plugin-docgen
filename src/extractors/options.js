@@ -1,130 +1,61 @@
 const path = require('path');
 const logger = require('../utils/logger');
-const globalIndexComponentTemplate = require("../templates/globalIndexComponentTemplate");
-const docsBlockTemplate = require("../templates/docsBlockTemplate");
-const topTemplate = require('../templates/componentsTemplate');
+const { index, component } = require('../templates')
+const merge = require('deepmerge')
+
+const { 
+  introduction,
+  tags, 
+  props, 
+  methods, 
+  events, 
+  slots,
+  preview  
+} = component;
 
 module.exports.options = {
-  componentsDir: {
-    type: 'string',
-    required: true,
-    found: false,
-  },
-  debug: {
-    type: 'boolean',
-    default: false,
-  },
-  sideBarName: {
-    type: 'string',
-    default: 'components',
-  },
-  globalName: {
-    type: 'string',
-    default: 'Globals'
-  },
-  globalIndexComponentTemplate: {
-    type: 'string',
-    default: globalIndexComponentTemplate
-  },
-  docsBlockTemplate: {
-    type: 'function',
-    default: docsBlockTemplate
-  },
-  componentsDocsTemplate: {
-    type: 'string',
-    default: topTemplate
-  }
-};
-
-module.exports.isFound = (key) => {
-  if (module.exports.options[key]) {
-    module.exports.options[key].found = true;
-    return true;
-  }
-  logger.error(`key ${key} is useless you should delete it`);
-  return false;
-};
-
-module.exports.isGoodTyped = (key, obj) => {
-  if (typeof obj[key] !== module.exports.options[key].type) { /* eslint-disable-line */
-    logger.error(
-      `type of: ${key} should be of type ${module.exports.options[key].type}, received ${typeof obj[key]}`,
-    );
-    return false;
-  }
-  return true;
-};
-
-module.exports.isOptionsAlltrue = (options) => {
-  let valid = true;
-  Object.keys(options).forEach((key) => {
-    const k = options[key];
-    if (k.required && !k.found) {
-      valid = false;
-      logger.error('error with the key: missing ', key);
+  debug: false,
+  sideBarName: 'components',
+  globalName: 'Globals',
+  templates: {
+    components: {
+      index,
+      introduction,
+      tags,
+      props,
+      slots,
+      events,
+      methods,
+      preview
     }
-  });
+  }
+};
 
+module.exports.checkTemplates = ({components}) => {
+  let valid = true;
+  if (typeof components !== 'object') return false;
+  Object.keys(components).forEach((key) => {
+    const k = components[key];
+    if (typeof k !== 'function') valid = false
+  });
   return valid;
 };
 
-module.exports.regroupOptions = (givenOpts, options) => {
-  const defaultOpts = {};
-
-  Object.keys(options).forEach((key) => {
-    const defaultPresent = Object.prototype.hasOwnProperty.call(
-      options[key],
-      'default',
-    );
-    if (defaultPresent) defaultOpts[key] = options[key].default;
-  });
-
-  return {
-    ...defaultOpts,
-    ...givenOpts,
-  };
-};
-
-module.exports.isAllKeyFounded = (opts) => {
-  let finalValidation = true;
-
-  Object.keys(opts).forEach((key) => {
-    const founded = module.exports.isFound(key);
-    if (!founded) finalValidation = false;
-  });
-
-  return finalValidation;
-};
-
-module.exports.isAllKeyGoodTyped = (opts) => {
-  let finalValidation = true;
-
-  Object.keys(opts).forEach((key) => {
-    const goodTyped = module.exports.isGoodTyped(key, opts);
-    if (!goodTyped) finalValidation = false;
-  });
-
-  return finalValidation;
-};
-
 module.exports.extractOptions = (givenOpts) => {
-  let keysValid = false;
-  let goodTyped = false;
-
-  keysValid = module.exports.isAllKeyFounded(givenOpts);
-
-  if (keysValid) {
-    goodTyped = module.exports.isAllKeyGoodTyped(givenOpts);
+  const finalOpts = merge(givenOpts, module.exports.options)
+  if (!finalOpts.componentsDir) {
+    logger.error('[keys options]: you must pass a componentsDir property')
+    return process.exit(1);
   }
 
-  const optionsAllTrue = module.exports.isOptionsAlltrue(module.exports.options);
-
-  if (!optionsAllTrue || !keysValid || !goodTyped) return process.exit(1);
-
-  if (!path.isAbsolute(givenOpts.componentsDir)) {
+  if (!path.isAbsolute(finalOpts.componentsDir)) {
     logger.error('path must be absolute path');
     process.exit(1);
   }
 
-  return module.exports.regroupOptions(givenOpts, module.exports.options);
+  if (!module.exports.checkTemplates(finalOpts.templates)) {
+    logger.error('[templates errors]: all templates should be functions')
+    return process.exit(1);
+  }
+  return finalOpts;
 };
