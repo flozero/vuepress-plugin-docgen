@@ -26,29 +26,13 @@ export default {
          * @public
          * @version 1.0.5
          * @since Version 1.0.1
-         * @param {string} key Key to order
+         * @param {string} t Key to order
          * @returns {string} Test
          */
-        apple() {},
-        /**
-         * Sets the order
-         *
-         * @public
-         * @version 1.0.5
-         * @since Version 1.0.1
-         * @param {string} key Key to order
-         * @returns {string} Test
-         */
+        apple(t) {
+          return t + 'hello'
+        },
         apple1() {},
-        /**
-         * Sets the order
-         *
-         * @public
-         * @version 1.0.5
-         * @since Version 1.0.1
-         * @param {string} key Key to order
-         * @returns {string} Test
-         */
     },
 }
 </script> 
