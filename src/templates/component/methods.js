@@ -19,6 +19,20 @@ const params = function(params) {
   return ret;
 }
 
+const returns = function(returns) {
+
+    const p = returns;
+    const t = p.type && p.type.name ? p.type.name : '';
+    const d = p.description ? p.description : ''
+
+    return `
+  ### Return
+  | Type        | Description  |
+  | ------------- | -------------|
+  | ${t} | ${d} |
+  `
+}
+
 const tmpl = function(methods) {
   let ret = '';
 
@@ -28,6 +42,7 @@ const tmpl = function(methods) {
   > ${m.description || ''}
 
   ${m.params ? params(m.params) : ''}
+  ${m.returns ? returns(m.returns) : ''}
   `
   })
   return ret;
