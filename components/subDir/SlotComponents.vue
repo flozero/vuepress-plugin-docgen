@@ -13,14 +13,15 @@
 </template>
  
 <script>
+ 
   /**
    * This is an example of creating a reusable grid component and using it with external data.
    * @version 1.0.5
-   * @author [Rafael](https://github.com/rafaesc92)
+   * @author [f3ltron](https://github.com/f3ltron)
    * @since Version 1.0.1
    */
   export default {
-    name: 'Test',
+    name: 'SlotComponent',
     props: {
  
       /**
@@ -33,13 +34,6 @@
       msg: {
         type: [String, Number],
         default: ""
-      },
-      /**
-       * Model example
-       * @model
-       */
-      value: {
-        type: String
       },
       /**
        * describe data
@@ -122,15 +116,7 @@
           demo: 'example',
         })
       },
-
-      /**
-         * asdakdaldalsdadadkld.
-         * @public
-         */
-      notHiddenMethod: function(){
-        console.log("adasd")
-      },
-      
+ 
       hiddenMethod: function(){
  
       }

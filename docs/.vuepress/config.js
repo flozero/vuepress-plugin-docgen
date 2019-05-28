@@ -6,11 +6,11 @@ module.exports = {
   plugins: [
     ["live"],
     [
-      // you can use here 'docgen'
+      // you can use here 'docgen' instead of the require
       require("../../src/index"),
       {
         componentsDir: path.join(__dirname, "../../components"),
-        debug: true,
+        // debug: true,
         sideBarName: 'Components',// this the default value
         globalName: 'Globals' // this is for naming the root path of your components
       }

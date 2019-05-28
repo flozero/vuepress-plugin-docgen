@@ -8,7 +8,7 @@ module.exports = class VueParser {
   getCustomBlock(blockName) {
     return (
       this.descriptor.customBlocks.find(block => block.type === blockName) ||
-      null
+      {content: ''}
     );
   }
 };

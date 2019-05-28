@@ -1,51 +1,29 @@
-const { parse } = require('vue-docgen-api')
 const fs = require('fs')
-
-const { getCompiledTemplateWithHbs } = require('../handlebars')
 const VueParser = require('../../parser/vue')
 
 const { getFileNameFromAbsolutePath } = require('../../extractors/pathReader')
 const { dropVueExtension } = require('../../extractors/name')
-
-const buildIndexPageComponent = finalContext => {
-    const contentTemplate = finalContext.options.globalIndexComponentTemplate
-    return {
-        path: `/${finalContext.options.sideBarName}/`,
-        content: getCompiledTemplateWithHbs(finalContext, contentTemplate),
-    }
-}
+const { buildComponent, buildIndexPageComponents } = require('./compileTemplates');
 
 const buildComponentPage = (absolutePath, parentPath, finalContext) => {
-    let preview = ''
+    const ComponentToStr = fs.readFileSync(absolutePath, { encoding: 'utf-8' })
+    const componentName = dropVueExtension(getFileNameFromAbsolutePath(absolutePath))
 
-    const componentInfo = parse(absolutePath)
-
-    const componentPreviewCompiled = getCompiledTemplateWithHbs(
-        componentInfo,
-        finalContext.options.componentsDocsTemplate,
-    )
-
-    const readedComponent = fs.readFileSync(absolutePath, { encoding: 'utf-8' })
-
-    let componentName = getFileNameFromAbsolutePath(absolutePath)
-    componentName = dropVueExtension(componentName)
-
-    const vueParser = new VueParser({
-        source: readedComponent,
+    // TODO: i think we can inject some context here ?
+    const ComponentInstance = new VueParser({
+        source: ComponentToStr,
         fileName: componentName,
     })
 
-    const docsBlock = vueParser.getCustomBlock('docs')
-
-    if (docsBlock && docsBlock.content) {
-        preview = '## Preview \n' + docsBlock.content
-    }
-
-    const content = componentPreviewCompiled + preview
+    const preview = buildComponent(
+        absolutePath,
+        ComponentInstance.getCustomBlock('docs').content,
+        finalContext
+    )
 
     return {
         path: `${parentPath + componentName}.html`,
-        content,
+        content: preview
     }
 }
 
@@ -62,7 +40,7 @@ module.exports = finalContext => {
                     buildComponentPage(
                         `${componentsDir}/${componentRelativePath}`,
                         `/${prefix}/`,
-                        finalContext,
+                        finalContext
                     ),
                 )
             })
@@ -72,12 +50,12 @@ module.exports = finalContext => {
                     buildComponentPage(
                         `${componentsDir}/${k}/${componentRelativePath}`,
                         `/${prefix}/${k}/`,
-                        finalContext,
+                        finalContext
                     ),
                 )
             })
         }
     })
 
-    return [buildIndexPageComponent(finalContext), ...componentsPages]
+    return [buildIndexPageComponents(finalContext), ...componentsPages]
 }

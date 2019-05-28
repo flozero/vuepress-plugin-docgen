@@ -75,13 +75,35 @@ It will call **buildComponentPage**
 
 First it will use the parse from [our fork of vue-docgen-api](https://github.com/vue-styleguidist/vue-styleguidist#readme) and extract componentInfo in **componentInfo**
 
-For now it will send you our hbs template the components infos and return compiled component infos template in string in markdown here
+from here we have splitted the rendering of the docs a lot !
 
-It will read the component file and save the name of the component
+You can actually personnalize everything.
 
-Send the string and the name to the **VueParser**
+Every parameters in components should be functions they will receive data for his part and return a string. You can check code for example
 
-From this we extract the docsBlock from the component if there is and put it as preview.
+```jsx
+  // you can use here 'docgen' instead of the require
+  require("../../src/index"),
+  {
+    componentsDir: path.join(__dirname, "../../components"),
+    // debug: true,
+    sideBarName: 'Components',// this the default value
+    globalName: 'Globals', // this is for naming the root path of your components
+    templates: {
+      component: { 
+        index: [Function],
+        introduction: [Function],
+        tags: [Function],
+        props: [Function],
+        slots: [Function],
+        events: [Function],
+        methods: [Function],
+        preview: [Function] 
+      }
+    }
+  }
+
+```
 
 You should consider using something [vuepress-plugin-live](https://vuepress-live.surge.sh/). 
 
