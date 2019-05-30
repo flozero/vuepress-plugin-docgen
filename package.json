@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-docgen",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Vuepress plugin for document your component",
   "scripts": {
     "docs": "vuepress dev docs --no-clear-screen",
@@ -40,12 +40,15 @@
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.15.1",
     "eslint-config-airbnb-base": "^13.1.0",
+    "glob": "^7.1.4",
     "husky": "^1.2.0",
     "mocha": "^6.1.4",
+    "node-sass": "^4.12.0",
     "prettier": "^1.15.2",
+    "sass-loader": "^7.1.0",
     "vue": "2.6.10",
     "vuepress": "^1.0.0-alpha.48",
-    "vuepress-plugin-live": "^0.0.7"
+    "vuepress-plugin-live": "^1.0.2"
   },
   "husky": {
     "hooks": {
@@ -56,7 +59,6 @@
     "@vue/component-compiler-utils": "^2.6.0",
     "consola": "^2.5.6",
     "deepmerge": "^3.2.0",
-    "node-dir": "^0.1.17",
     "vue-docgen-api": "^3.13.4",
     "vue-template-compiler": "^2.6.10"
   },

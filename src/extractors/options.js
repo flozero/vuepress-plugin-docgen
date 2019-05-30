@@ -17,6 +17,7 @@ module.exports.options = {
   debug: false,
   sideBarName: 'components',
   globalName: 'Globals',
+  regex: "/**/*.vue",
   templates: {
     components: {
       index,
@@ -42,7 +43,9 @@ module.exports.checkTemplates = ({components}) => {
 };
 
 module.exports.extractOptions = (givenOpts) => {
-  const finalOpts = merge(givenOpts, module.exports.options)
+  const finalOpts = merge(module.exports.options, givenOpts)
+
+  console.log(finalOpts);
   if (!finalOpts.componentsDir) {
     logger.error('[keys options]: you must pass a componentsDir property')
     return process.exit(1);

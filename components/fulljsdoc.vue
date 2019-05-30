@@ -6,6 +6,10 @@
     <table class="grid">
       <!-- -->
     </table>
+
+    {{ msg }}
+
+    <div v-for="c in columns" :key="c">{{c}}</div>
  
     <!-- @slot Use this slot footer -->
     <slot name="footer"></slot>
@@ -13,6 +17,8 @@
 </template>
  
 <script>
+  import { text } from './utils';
+ 
   /**
    * This is an example of creating a reusable grid component and using it with external data.
    * @version 1.0.5
@@ -20,7 +26,7 @@
    * @since Version 1.0.1
    */
   export default {
-    name: 'Test',
+    name: 'fulljsdoc',
     props: {
  
       /**
@@ -32,7 +38,7 @@
        */
       msg: {
         type: [String, Number],
-        default: ""
+        default: text
       },
       /**
        * Model example
@@ -106,10 +112,9 @@
        * @version 1.0.5
        * @since Version 1.0.1
        * @param {string} key Key to order
-       * @param {string, number} test Key to order
-       * @returns {string, number} Test
+       * @returns {string} Test
        */
-      sortBy: function (key, test) {
+      sortBy: function (key) {
         this.sortKey = key
         this.sortOrders[key] = this.sortOrders[key] * -1;
  
@@ -123,18 +128,16 @@
           demo: 'example',
         })
       },
-
-      /**
-         * asdakdaldalsdadadkld.
-         * @public
-         */
-      notHiddenMethod: function(){
-        console.log("adasd")
-      },
-      
+ 
       hiddenMethod: function(){
  
       }
     }
   }
 </script> 
+
+<docs>
+```vue live
+  <fulljsdoc :columns="[2, 3, 4]" />
+```
+</docs>

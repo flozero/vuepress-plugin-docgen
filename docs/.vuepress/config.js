@@ -10,7 +10,8 @@ module.exports = {
       require("../../src/index"),
       {
         componentsDir: path.join(__dirname, "../../components"),
-        // debug: true,
+        debug: true,
+        regex: "/**/*.vue",
         sideBarName: 'Components',// this the default value
         globalName: 'Globals' // this is for naming the root path of your components
       }
@@ -21,14 +22,13 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
       { text: "Components Examples", link: "/components/" },
-      { text: 'Release', link: '/CHANGELOG.md' },
       { text: 'Github', link: 'https://github.com/f3ltron/vuepress-plugin-docgen' }
     ],
     sidebar: {
       '/guide/':  [
         {
-          title: 'Guide', // required
-          collapsable: false, // optional, defaults to true
+          title: 'Guide',
+          collapsable: false,
           children: [
             ['/guide/', 'installation'],
             '/guide/configuration',
@@ -36,8 +36,8 @@ module.exports = {
           ]
         },
         {
-          title: 'Contributing', // required
-          collapsable: false, // optional, defaults to true
+          title: 'Contributing',
+          collapsable: false,
           children: [
             ['/guide/contributing/', 'Thank You'],
             ['/guide/contributing/development.md', 'local Developemt'],
