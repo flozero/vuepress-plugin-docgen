@@ -22,7 +22,6 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
       { text: "Components Examples", link: "/components/" },
-      { text: 'Release', link: '/CHANGELOG.md' },
       { text: 'Github', link: 'https://github.com/f3ltron/vuepress-plugin-docgen' }
     ],
     sidebar: {
