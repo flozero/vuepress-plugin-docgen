@@ -1,13 +1,11 @@
-const dir = require('node-dir');
 const { extractDirPathFromFile, extractRelativePath } = require('../../extractors/pathReader');
+const glob = require('glob');
 
 module.exports.hasKey = (obj, key) => Object.prototype.hasOwnProperty.call(
   obj,
   key,
 );
 
-// TODO: improvment can be done here
-// using globs to find files
 module.exports.buildGlobalContext = (finalOpts) => {
   const ret = {
     children: [],
@@ -15,21 +13,19 @@ module.exports.buildGlobalContext = (finalOpts) => {
 
   const paths = [];
 
-  dir
-    .files(finalOpts.componentsDir, {
-      sync: true,
-      recursive: true,
-    })
-    .filter(file => file.match(/\.(vue)$/))
-    .map((file) => {
-      const dirPathForGlobalRequire = extractDirPathFromFile(file);
-      paths.push(dirPathForGlobalRequire);
+  const pattern = finalOpts.componentsDir + finalOpts.regex;
+  const files = glob.sync(pattern, {})
 
-      const relativePath = extractRelativePath(finalOpts.componentsDir, file);
+  files.forEach(file => {
 
-      const splitRelativePath = relativePath.split('/');
+    const dirPathForGlobalRequire = extractDirPathFromFile(file);
+    paths.push(dirPathForGlobalRequire);
 
-      const isSubPath = splitRelativePath.length > 1;
+    const relativePath = extractRelativePath(finalOpts.componentsDir, file);
+
+    const splitRelativePath = relativePath.split('/');
+
+    const isSubPath = splitRelativePath.length > 1;
 
       if (isSubPath) {
         const keyObj = splitRelativePath[0];
@@ -43,8 +39,8 @@ module.exports.buildGlobalContext = (finalOpts) => {
       } else {
         ret.children.push(relativePath);
       }
-      return file;
-    });
+  })
+
   return {
     basePath: finalOpts.componentsDir,
     componentsPathContext: ret,

@@ -35,6 +35,22 @@ sideBarName: {
 globalName: {
   type: 'string',
   default: 'Globals' 
+},
+regex: {
+  type: 'string',
+  default:  "/**/*.vue"
+},
+templates: { //default
+  component: { 
+    index: [Function],
+    introduction: [Function],
+    tags: [Function],
+    props: [Function],
+    slots: [Function],
+    events: [Function],
+    methods: [Function],
+    preview: [Function] 
+  }
 }
 ```
 
@@ -120,3 +136,28 @@ GlobalName is the section name where all your components at rootDir will be disp
 [vue-docgen-api](https://www.npmjs.com/package/vue-docgen-api)
 
 
+## regex
+
+> default /**/*.vue
+
+If you want to have some granularities of wich components you want and not you can use glob pattern check the package [HERE](https://www.npmjs.com/package/glob)
+
+## templates
+
+templates here are the full customisable rendering ! You can change every part of the docgen. 
+
+It just has to be functions for all of them and return a string that will represent a markdown you will receive data that 
+represent the part you will render.
+
+Examples: 
+
+introduction will receive 
+
+```jsx
+  {
+    displayName,
+    description
+  }
+```
+
+If you want to see more just go in the templates folder and you will have example of what we do actually !

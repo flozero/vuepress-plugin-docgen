@@ -6,6 +6,10 @@
     <table class="grid">
       <!-- -->
     </table>
+
+    {{ msg }}
+
+    <div v-for="c in columns" :key="c">{{c}}</div>
  
     <!-- @slot Use this slot footer -->
     <slot name="footer"></slot>
@@ -13,14 +17,16 @@
 </template>
  
 <script>
+  import { text } from '../utils';
  
   /**
+   * This is an example of creating a reusable grid component and using it with external data.
    * @version 1.0.5
    * @author [Rafael](https://github.com/rafaesc92)
    * @since Version 1.0.1
    */
   export default {
-    name: 'Modal',
+    name: 'full',
     props: {
  
       /**
@@ -32,7 +38,7 @@
        */
       msg: {
         type: [String, Number],
-        default: ""
+        default: text
       },
       /**
        * Model example
@@ -116,7 +122,7 @@
          * Success event.
          *
          * @event success
-         * @type {object, string} 
+         * @type {object} 
          */
         this.$emit('success', {
           demo: 'example',
@@ -129,3 +135,9 @@
     }
   }
 </script> 
+
+<docs>
+```vue live
+  <full :columns="[2, 3, 4]" />
+```
+</docs>

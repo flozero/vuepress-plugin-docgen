@@ -89,6 +89,7 @@ Every parameters in components should be functions they will receive data for hi
     // debug: true,
     sideBarName: 'Components',// this the default value
     globalName: 'Globals', // this is for naming the root path of your components
+    regex: "/**/*.vue",
     templates: {
       component: { 
         index: [Function],
