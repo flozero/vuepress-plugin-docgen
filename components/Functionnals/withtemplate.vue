@@ -1,10 +1,3 @@
-<template functional>
-  <div>
-    <h1>Hello {{props.text}}</h1>
-  </div>
-</template>
-
-
 <script>
 export default {
   props: {
@@ -12,10 +5,13 @@ export default {
       type: String,
       default: ""
     }
+  },
+  render: function(createElement) {
+    return createElement('div', this.$props.text)
   }
 }
 </script>
 
 <docs>
-  <withtemplate />
+  <withtemplate text="text props"/>
 </docs>
