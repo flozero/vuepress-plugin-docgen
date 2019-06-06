@@ -37,7 +37,7 @@ const tmpl = function(methods) {
 
   methods.forEach(m => {
     ret +=  `
-  <span style="color:rgba(34, 167, 240, 1)"><h3>${m.name || ''}</h3></span>
+  <span style="color:rgba(34, 167, 240, 1)"><h3>${m.name ? m.name : ''}</h3></span>
   > ${m.description || ''}
 
   ${m.params ? params(m.params) : ''}

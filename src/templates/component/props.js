@@ -3,7 +3,7 @@ const tmpl = function(props = {}) {
 
   Object.keys(props).forEach(p => {
     const pr = props[p]
-    const n = pr.type.name ? pr.type.name : '';
+    const n = pr.type && pr.type.name ? pr.type.name : '';
     const v = pr.defaultValue && pr.defaultValue.value ? pr.defaultValue.value : '';
     const d = pr.description ? pr.description : ''
 

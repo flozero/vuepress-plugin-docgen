@@ -1,8 +1,6 @@
 <template functional>
   <div>
-    <no-ssr>
-      <h1>Hello {{props.text}}</h1>
-    </no-ssr>
+    <h1>Hello {{props.text}}</h1>
   </div>
 </template>
 
