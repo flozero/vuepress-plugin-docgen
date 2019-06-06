@@ -10,7 +10,7 @@ module.exports = {
       require("../../src/index"),
       {
         componentsDir: path.join(__dirname, "../../components"),
-        debug: true,
+        // debug: true,
         regex: "/**/*.vue",
         sideBarName: 'Components',// this the default value
         globalName: 'Globals' // this is for naming the root path of your components
