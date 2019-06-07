@@ -12,6 +12,7 @@ const chainWebpack = require('./utils/webpack')
 
 const buildSideBar = require('./builders/sidebar')
 
+// TODO: use @vuepress/shared-utils logger
 const logger = require('./utils/logger')
 
 module.exports = (givenOpts = {}) => {
