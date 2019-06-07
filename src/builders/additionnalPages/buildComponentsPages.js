@@ -30,13 +30,12 @@ const buildComponentPage = (absolutePath, parentPath, finalContext) => {
 module.exports = finalContext => {
     const ctx = finalContext.componentsPathContext
     const { componentsDir } = finalContext.options
-    const componentsPages = []
     const prefix = finalContext.options.sideBarName
 
-    Object.keys(ctx).forEach(k => {
+    const componentsPages = Object.keys(ctx).reduce((acc, k) => {
         if (k === 'children') {
             ctx[k].forEach(componentRelativePath => {
-                componentsPages.push(
+                acc.push(
                     buildComponentPage(
                         `${componentsDir}/${componentRelativePath}`,
                         `/${prefix}/`,
@@ -46,7 +45,7 @@ module.exports = finalContext => {
             })
         } else {
             ctx[k].children.forEach(componentRelativePath => {
-                componentsPages.push(
+                acc.push(
                     buildComponentPage(
                         `${componentsDir}/${k}/${componentRelativePath}`,
                         `/${prefix}/${k}/`,
@@ -55,7 +54,8 @@ module.exports = finalContext => {
                 )
             })
         }
-    })
+        return acc
+    }, [])
 
     return [buildIndexPageComponents(finalContext), ...componentsPages]
 }
