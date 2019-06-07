@@ -23,7 +23,7 @@ const buildComponentPage = (absolutePath, parentPath, finalContext) => {
     return {
         title: preview.title,
         content: preview.content,
-        path: `${parentPath + componentName}.html`,
+        path: `${parentPath}${componentName}.html`,
     }
 }
 
@@ -33,28 +33,19 @@ module.exports = finalContext => {
     const prefix = finalContext.options.sideBarName
 
     const componentsPages = Object.keys(ctx).reduce((acc, k) => {
-        if (k === 'children') {
-            ctx[k].forEach(componentRelativePath => {
-                acc.push(
-                    buildComponentPage(
-                        `${componentsDir}/${componentRelativePath}`,
-                        `/${prefix}/`,
-                        finalContext,
-                    ),
-                )
-            })
-        } else {
-            ctx[k].children.forEach(componentRelativePath => {
-                acc.push(
-                    buildComponentPage(
-                        `${componentsDir}/${k}/${componentRelativePath}`,
-                        `/${prefix}/${k}/`,
-                        finalContext,
-                    ),
-                )
-            })
-        }
-        return acc
+        const isChildren = k === 'children'
+        const children = isChildren ? ctx[k] : ctx[k].children
+        const componentsDirAbsolute = isChildren ? `${componentsDir}/` : `${componentsDir}/${k}/`
+        const fullPrefix = isChildren ? `/${prefix}/` : `/${prefix}/${k}/`
+        return acc.concat(
+            children.map(componentRelativePath =>
+                buildComponentPage(
+                    componentsDirAbsolute + componentRelativePath,
+                    fullPrefix,
+                    finalContext,
+                ),
+            ),
+        )
     }, [])
 
     return [buildIndexPageComponents(finalContext), ...componentsPages]
