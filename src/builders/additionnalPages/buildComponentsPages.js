@@ -3,13 +3,12 @@ const VueParser = require('../../parser/vue')
 
 const { getFileNameFromAbsolutePath } = require('../../extractors/pathReader')
 const { dropVueExtension } = require('../../extractors/name')
-const { buildComponent, buildIndexPageComponents } = require('./compileTemplates');
+const { buildComponent, buildIndexPageComponents } = require('./compileTemplates')
 
 const buildComponentPage = (absolutePath, parentPath, finalContext) => {
     const ComponentToStr = fs.readFileSync(absolutePath, { encoding: 'utf-8' })
     const componentName = dropVueExtension(getFileNameFromAbsolutePath(absolutePath))
 
-    // TODO: i think we can inject some context here ?
     const ComponentInstance = new VueParser({
         source: ComponentToStr,
         fileName: componentName,
@@ -18,12 +17,13 @@ const buildComponentPage = (absolutePath, parentPath, finalContext) => {
     const preview = buildComponent(
         absolutePath,
         ComponentInstance.getCustomBlock('docs').content,
-        finalContext
+        finalContext,
     )
 
     return {
+        title: preview.title,
+        content: preview.content,
         path: `${parentPath + componentName}.html`,
-        content: preview
     }
 }
 
@@ -40,7 +40,7 @@ module.exports = finalContext => {
                     buildComponentPage(
                         `${componentsDir}/${componentRelativePath}`,
                         `/${prefix}/`,
-                        finalContext
+                        finalContext,
                     ),
                 )
             })
@@ -50,7 +50,7 @@ module.exports = finalContext => {
                     buildComponentPage(
                         `${componentsDir}/${k}/${componentRelativePath}`,
                         `/${prefix}/${k}/`,
-                        finalContext
+                        finalContext,
                     ),
                 )
             })
