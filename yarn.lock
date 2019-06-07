@@ -8624,10 +8624,10 @@ vuepress-plugin-container@^2.0.0:
   dependencies:
     markdown-it-container "^2.0.0"
 
-vuepress-plugin-live@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-live/-/vuepress-plugin-live-1.0.6.tgz#f0f46a96cd653ce402f9fa4ebbb54848d86d454a"
-  integrity sha512-4RBKBNuNaSzCG6JxMP+F63HquxyHv2h+69oZBuPEow2vfg6Xv4mL6mJj6MRhqalXKrjnYqdGJ/pttQR0LZtXaw==
+vuepress-plugin-live@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-live/-/vuepress-plugin-live-1.1.0.tgz#a162cbad0d4fb47aab69670eaf6e21804006e9d1"
+  integrity sha512-kBjP+P9M58/Mfis3uits+QrrcPdiRWsQbRnguI7qrt8SSkXVwf0ZjmLbnIBWPdIAFAU2wCQMx2JVKICyU7QVIQ==
   dependencies:
     acorn "^6.1.1"
     vue-live "^1.1.3"
