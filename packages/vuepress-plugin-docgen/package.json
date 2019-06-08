@@ -1,0 +1,24 @@
+{
+  "name": "vuepress-plugin-docgen",
+  "version": "1.2.3",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha --recursive --exclude node_modules --exclude src"
+  },
+  "dependencies": {
+    "deepmerge": "^3.2.0",
+    "glob": "^7.1.4",
+    "vue": "^2.6.10",
+    "vue-docgen-api": "^3.13.8"
+  },
+  "bugs": {
+    "url": "https://github.com/f3ltron/vuepress-plugin-docgen/issues"
+  },
+  "homepage": "https://f3ltron.github.io/vuepress-plugin-docgen/",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "vuepress": "^1.0.0-rc.1"
+  }
+}

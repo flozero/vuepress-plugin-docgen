@@ -1,0 +1,19 @@
+{
+  "command": {
+    "publish": {
+      "conventionalCommits": true, 
+      "yes": true,
+      "ignoreChanges": ["ignored-file", "*.md"],
+      "message": "chore(release): publish"
+    },
+    "bootstrap": {
+      "npmClientArgs": ["--no-package-lock"]
+    }
+  },
+  "packages": [
+    "packages/*"
+  ],
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "version": "1.2.3"
+}

@@ -1,0 +1,1 @@
+module.exports.dropVueExtension = (c) => c.split('.')[0]

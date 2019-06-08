@@ -1,0 +1,48 @@
+{
+  "name": "vuepres-plugin-docgen",
+  "version": "1.2.3",
+  "description": "vuepress, component doc generation",
+  "repository": "https://github.com/f3ltron/vuepress-plugin-docgen",
+  "author": "f3ltron",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "private": true,
+  "scripts": {
+    "bootstrap": "yarn && lerna bootstrap",
+    "dev": "yarn workspace examples docs",
+    "test": "yarn workspace vuepress-plugin-docgen test",
+    "publish": "lerna publish",
+    "packages:reset": "lerna exec -- npx rimraf ./node_modules",
+    "packages:remove": "lerna exec -- yarn remove",
+    "release": "cross-env HUSKY_BYPASS=true lerna publish from-git --yes",
+    "commit": "git-cz"
+  },
+  "bugs": {
+    "url": "https://github.com/f3ltron/vuepress-plugin-docgen/issues"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "[[ -n $HUSKY_BYPASS ]] || commitlint -E HUSKY_GIT_PARAMS"
+      }
+    },
+    "commitlint": {
+      "extends": ["@commitlint/config-conventional"]
+    },
+  "homepage": "https://f3ltron.github.io/vuepress-plugin-docgen/",
+  "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^2.4.0",
+    "lerna": "^3.14.1",
+    "rimraf": "^2.6.3"
+  }
+}

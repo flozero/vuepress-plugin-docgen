@@ -1,0 +1,10 @@
+{
+  "name": "docs",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.0.0-rc.1"
+  }
+}
