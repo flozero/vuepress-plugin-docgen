@@ -22,7 +22,8 @@
     "packages:reset": "lerna exec -- npx rimraf ./node_modules",
     "packages:remove": "lerna exec -- yarn remove",
     "release": "cross-env HUSKY_BYPASS=true lerna publish from-git --yes",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "deploy:docs": "node scripts/docs-deploy.sh"
   },
   "bugs": {
     "url": "https://github.com/f3ltron/vuepress-plugin-docgen/issues"
