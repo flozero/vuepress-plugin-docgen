@@ -1,6 +1,7 @@
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Build Status](https://travis-ci.com/f3ltron/vuepress-plugin-docgen.svg?branch=master)](https://travis-ci.com/f3ltron/vuepress-plugin-docgen)
+ [![NPM Downloads](https://img.shields.io/npm/dm/vuepress-plugin-docgen.svg)](https://www.npmjs.com/package/vuepress-plugin-docgen)
 
 # vuepress-plugin-docgen
 
