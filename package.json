@@ -1,6 +1,6 @@
 {
   "name": "vuepres-plugin-docgen",
-  "version": "1.2.4",
+  "version": "1.2.8",
   "description": "vuepress, component doc generation",
   "repository": "https://github.com/f3ltron/vuepress-plugin-docgen",
   "author": "f3ltron",
