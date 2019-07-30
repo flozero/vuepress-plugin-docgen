@@ -20,7 +20,7 @@
     "stylus-loader": "^3.0.2",
     "vue-template-compiler": "^2.6.10",
     "vuepress": "^1.0.0-rc.1",
-    "vuepress-plugin-docgen": "1.2.3",
-    "vuepress-plugin-live": "^1.1.0"
+    "vuepress-plugin-docgen": "1.2.9",
+    "vuepress-plugin-live": "^1.3.0"
   }
 }

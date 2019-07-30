@@ -4,23 +4,29 @@ module.exports = {
   title: 'VuePress Docgen',
   description: 'Preview your components',
   plugins: [
-    ["live"],
     [
-      // you can use here 'docgen' instead of the require
-      require("vuepress-plugin-docgen"),
+      "live",
       {
-        componentsDir: path.join(__dirname, "../../src/components"),
-        // debug: true,
+        layout: path.resolve(__dirname, "./custom-layout"),
       }
-    ]
-  ],
-  themeConfig: {
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: "Components Examples", link: "/components/" },
-      { text: 'Github', link: 'https://github.com/f3ltron/vuepress-plugin-docgen' }
     ],
-    sidebar: {},
-  },
-  base: "/vuepress-plugin-docgen/"
+    [
+      [
+        // you can use here 'docgen' instead of the require
+        require("vuepress-plugin-docgen"),
+        {
+          componentsDir: path.join(__dirname, "../../src/components"),
+          // debug: true,
+        }
+      ]
+    ],
+    themeConfig: {
+      nav: [
+        { text: 'Home', link: '/' },
+        { text: "Components Examples", link: "/components/" },
+        { text: 'Github', link: 'https://github.com/f3ltron/vuepress-plugin-docgen' }
+      ],
+      sidebar: {},
+    },
+    base: "/vuepress-plugin-docgen/"
 }
