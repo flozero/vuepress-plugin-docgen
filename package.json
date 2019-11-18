@@ -21,6 +21,7 @@
     "publish": "lerna publish",
     "packages:reset": "lerna exec -- npx rimraf ./node_modules",
     "packages:remove": "lerna exec -- yarn remove",
+    "audit": "lerna exec -- yarn audit ",
     "release": "cross-env HUSKY_BYPASS=true lerna publish from-git --yes",
     "commit": "npx git-cz",
     "deploy:docs": "node scripts/docs-deploy.sh"
